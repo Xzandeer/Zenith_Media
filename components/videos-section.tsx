@@ -4,21 +4,40 @@ import { useState, useEffect } from "react"
 import { Play, ChevronLeft, ChevronRight } from "lucide-react"
 
 const heroVideos = [
-  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
-  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
-  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
-]
+  {
+    id: "Mg6hPZbJlDo",
+    title: "The reality of the Philippines being a social media capital of the world",
+  },
+  {
+    id: "M773G0GWpoM",
+    title: `Ever heard of the "I Love You" virus?`,
+  },
+  {
+    id: "914qlCBGKdU",
+    title: "CCU Tips to become social media literate? What's that?",
+  },
+];
 
 const moreVideos = [
-  { id: "Mg6hPZbJlDo", title: "The reality of the Philippines being a social media capital of the world" },
-  { id: "M773G0GWpoM", title: "Ever heard of the "I Love You" virus? " },
-  { id: "914qlCBGKdU", title: "CCU Tips to become social media literate? What's that?" },
-]
+  {
+    id: "Mg6hPZbJlDo",
+    title: "The reality of the Philippines being a social media capital of the world",
+  },
+  {
+    id: "M773G0GWpoM",
+    title: `Ever heard of the "I Love You" virus?`,
+  },
+  {
+    id: "914qlCBGKdU",
+    title: "CCU Tips to become social media literate? What's that?",
+  },
+];
 
 const podcasts = [
-  { id: "", title: "Lorem Ipsum" },
-  { id: "", title: "Lorem Ipsum" },
-]
+  { id: null, title: "Lorem Ipsum" },
+  { id: null, title: "Lorem Ipsum" },
+];
+
 
 export function VideosSection() {
   const [index, setIndex] = useState(0)
