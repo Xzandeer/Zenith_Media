@@ -10,13 +10,13 @@ const heroVideos = [
   },
   {
     id: "M773G0GWpoM",
-    title: `Ever heard of the "I Love You" virus?`,
+    title: 'Ever heard of the "I Love You" virus?"',
   },
   {
     id: "914qlCBGKdU",
     title: "CCU Tips to become social media literate? What's that?",
   },
-];
+]
 
 const moreVideos = [
   {
@@ -25,19 +25,17 @@ const moreVideos = [
   },
   {
     id: "M773G0GWpoM",
-    title: `Ever heard of the "I Love You" virus?`,
+    title: 'Ever heard of the "I Love You" virus?"',
   },
   {
     id: "914qlCBGKdU",
     title: "CCU Tips to become social media literate? What's that?",
   },
-];
+]
 
 const podcasts = [
   { id: null, title: "What is MIL?", image: "/podcast1.jpg" },
-];
-
-
+]
 
 export function VideosSection() {
   const [index, setIndex] = useState(0)
@@ -145,34 +143,36 @@ export function VideosSection() {
           </div>
 
           {/* PODCASTS */}
-<div>
-  <h2 className="text-xl font-serif font-bold text-[#1F3E8A] mb-3">Podcasts:</h2>
-  <div className="grid grid-cols-2 gap-4">
-    {podcasts.map((p) => (
-      <div
-        key={p.title}
-        className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer"
-        style={{ height: "240px" }}
-        onClick={() => p.id && setPlaying(p.id)}
-      >
-        <img
-          src={
-            p.id
-              ? `https://img.youtube.com/vi/${p.id}/mqdefault.jpg`
-              : p.image
-          }
-          className="w-full h-full object-cover"
-        />
+          <div>
+            <h2 className="text-xl font-serif font-bold text-[#1F3E8A] mb-3">Podcasts:</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {podcasts.map((p) => (
+                <div
+                  key={p.title}
+                  className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl cursor-pointer"
+                  style={{ height: "240px" }}
+                  onClick={() => p.id && setPlaying(p.id)}
+                >
+                  <img
+                    src={
+                      p.id
+                        ? `https://img.youtube.com/vi/${p.id}/mqdefault.jpg`
+                        : p.image
+                    }
+                    className="w-full h-full object-cover"
+                  />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-        <p className="absolute bottom-2 left-2 text-xs text-white font-semibold">
-          {p.title}
-        </p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                  <p className="absolute bottom-2 left-2 text-xs text-white font-semibold">
+                    {p.title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
 
       {/* VIDEO MODAL */}
       {playing && (
