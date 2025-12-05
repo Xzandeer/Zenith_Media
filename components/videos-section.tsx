@@ -10,15 +10,14 @@ const heroVideos = [
 ]
 
 const moreVideos = [
-  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
-  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
-  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
-  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
+  { id: "The reality of the Philippines being a social media capital of the world", title: "Lorem Ipsum" },
+  { id: "M773G0GWpoM", title: "Ever heard of the "I Love You" virus? " },
+  { id: "914qlCBGKdU", title: "CCU Tips to become social media literate? What's that?" },
 ]
 
 const podcasts = [
-  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
-  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
+  { id: "", title: "Lorem Ipsum" },
+  { id: "", title: "Lorem Ipsum" },
 ]
 
 export function VideosSection() {
