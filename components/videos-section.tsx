@@ -34,9 +34,9 @@ const moreVideos = [
 ];
 
 const podcasts = [
-  { id: null, title: "Lorem Ipsum" },
-  { id: null, title: "Lorem Ipsum" },
+  { id: null, title: "What is MIL?", image: "/podcast1.jpg" },
 ];
+
 
 
 export function VideosSection() {
