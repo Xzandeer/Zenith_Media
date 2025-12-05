@@ -4,21 +4,21 @@ import { useState, useEffect } from "react"
 import { Play, ChevronLeft, ChevronRight } from "lucide-react"
 
 const heroVideos = [
-  { id: "52CWBXWReZc", title: "Lorem Ipsum" },
-  { id: "einZlTcUxzw", title: "Lorem Ipsum" },
-  { id: "pdLEHfkwgV8", title: "Lorem Ipsum" },
+  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
+  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
+  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
 ]
 
 const moreVideos = [
-  { id: "YFtHAHARbJA", title: "Lorem Ipsum" },
-  { id: "xpjs6DKbY0E", title: "Lorem Ipsum" },
-  { id: "WBOtQvqWpcg", title: "Lorem Ipsum" },
-  { id: "52CWBXWReZc", title: "Lorem Ipsum" },
+  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
+  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
+  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
+  { id: "Mg6hPZbJlDo", title: "Lorem Ipsum" },
 ]
 
 const podcasts = [
-  { id: "2caQ4j9oohE", title: "Lorem Ipsum" },
-  { id: "8VVtMnK9nPI", title: "Lorem Ipsum" },
+  { id: "M773G0GWpoM", title: "Lorem Ipsum" },
+  { id: "914qlCBGKdU", title: "Lorem Ipsum" },
 ]
 
 export function VideosSection() {
