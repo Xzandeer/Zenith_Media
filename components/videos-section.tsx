@@ -94,7 +94,6 @@ export function VideosSection() {
 
           {/* EDIT SUBTITLE HERE */}
           <p className="text-sm max-w-sm leading-relaxed opacity-90">
-            Empowering media literacy through awareness, creativity, and education.
           </p>
         </div>
 
