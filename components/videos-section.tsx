@@ -10,13 +10,13 @@ const heroVideos = [
   },
   {
     id: "M773G0GWpoM",
-    title: 'Ever heard of the "I Love You" virus?"',
+    title: `Ever heard of the "I Love You" virus?`,
   },
   {
     id: "914qlCBGKdU",
     title: "CCU Tips to become social media literate? What's that?",
   },
-]
+];
 
 const moreVideos = [
   {
@@ -25,17 +25,17 @@ const moreVideos = [
   },
   {
     id: "M773G0GWpoM",
-    title: 'Ever heard of the "I Love You" virus?"',
+    title: `Ever heard of the "I Love You" virus?`,
   },
   {
     id: "914qlCBGKdU",
     title: "CCU Tips to become social media literate? What's that?",
   },
-]
+];
 
 const podcasts = [
   { id: null, title: "What is MIL?", image: "/podcast1.jpg" },
-]
+];
 
 export function VideosSection() {
   const [index, setIndex] = useState(0)
@@ -57,7 +57,7 @@ export function VideosSection() {
     <section className="w-full h-full flex flex-col bg-white">
 
       {/* HERO SECTION */}
-      <div className="relative h-[50vh] min-h-[0px] w-full overflow-hidden items-center justify-center">
+      <div className="relative h-[50vh] w-full overflow-hidden">
 
         {/* Background image */}
         <img
@@ -84,11 +84,17 @@ export function VideosSection() {
           <ChevronRight className="text-[#1F3E8A]" />
         </button>
 
-        {/* CENTER TEXT */}
-        <div className="absolute left-10 top-1/3 text-white max-w-md">
-          <h1 className="text-5xl font-serif font-bold mb-3">LOREM IPSUM</h1>
-          <p className="text-sm max-w-sm leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        {/* HERO TEXT */}
+        <div className="absolute left-10 top-1/3 text-white max-w-md drop-shadow-md">
+
+          {/* Dynamic title */}
+          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-3">
+            {vid.title}
+          </h1>
+
+          {/* EDIT SUBTITLE HERE */}
+          <p className="text-sm max-w-sm leading-relaxed opacity-90">
+            Empowering media literacy through awareness, creativity, and education.
           </p>
         </div>
 
@@ -154,14 +160,9 @@ export function VideosSection() {
                   onClick={() => p.id && setPlaying(p.id)}
                 >
                   <img
-                    src={
-                      p.id
-                        ? `https://img.youtube.com/vi/${p.id}/mqdefault.jpg`
-                        : p.image
-                    }
+                    src={p.id ? `https://img.youtube.com/vi/${p.id}/mqdefault.jpg` : p.image}
                     className="w-full h-full object-cover"
                   />
-
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <p className="absolute bottom-2 left-2 text-xs text-white font-semibold">
                     {p.title}
