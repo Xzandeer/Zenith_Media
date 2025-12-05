@@ -10,7 +10,7 @@ const heroVideos = [
 ]
 
 const moreVideos = [
-  { id: "The reality of the Philippines being a social media capital of the world", title: "Lorem Ipsum" },
+  { id: "Mg6hPZbJlDo", title: "The reality of the Philippines being a social media capital of the world" },
   { id: "M773G0GWpoM", title: "Ever heard of the "I Love You" virus? " },
   { id: "914qlCBGKdU", title: "CCU Tips to become social media literate? What's that?" },
 ]
