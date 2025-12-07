@@ -1,228 +1,186 @@
 "use client";
 
 import { Navigation } from "@/components/navigation";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function BlogsPage() {
   const [scrolled, setScrolled] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
 
-  /* ---------------------- BLOG DATA ---------------------- */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // BLOG LIST
   const blogs = [
     {
       title: "The Artificial Joy Residing in our Home",
       author: "Kristel Reyes",
       date: "30 October 2025",
-      image: "/BLOG1.jpg",
       category: "AI",
-      link: "/blogs/artificial-joy",
+      href: "/blogs/artificial-joy",
+      img: "/BLOG1.jpg",
     },
     {
       title: "Not Posting Everything Anymore.. I guess?",
       author: "Princess Czyrah Jubilo",
       date: "30 October 2025",
-      image: "/princess.png",
       category: "Personal",
-      link: "/blogs/notposting",
+      href: "/blogs/notposting",
+      img: "/princess.png",
     },
     {
       title: "The Time I Tried (and Failed) to Explain AI Voices to Grandma",
       author: "Samantha Nicole Borres",
       date: "30 October 2025",
-      image: "/samblog.png",
       category: "AI",
-      link: "/blogs/granmaai",
+      href: "/blogs/granmaai",
+      img: "/samblog.png",
     },
     {
       title: "As Cliché as It Sounds, Think Before You Click",
       author: "Dawn Faith Montefalco",
       date: "06 November 2025",
-      image: "/dawn.jpg",
       category: "Media Literacy",
-      link: "/blogs/blog4",
+      href: "/blogs/blog4",
+      img: "/dawn.jpg",
     },
     {
-      title: "My Dad Does Not Listen To Me – A Communication Student",
+      title: "My Dad Does Not Listen To Me– A Communication Student",
       author: "Satur Boy Gawec",
       date: "02 November 2025",
-      image: "/satur.jpg",
       category: "Media Literacy",
-      link: "/blogs/blog5",
+      href: "/blogs/blog5",
+      img: "/satur.jpg",
     },
     {
-      title: "Drowning in Headlines: When Floods and Falsehoods Collide",
+    title: "NO ORIGINAL THOUGHT",
+    author: "Jeffrey Dones",
+    date: "06 November 2025",
+    category: "Media Literacy",
+    href: "/blogs/blog7",
+    img: "/jeff.png",
+    },
+    {
+      title: "Drowning in Headlines: When Floods & Falsehoods Collide",
       author: "Gian Andres",
       date: "31 October 2025",
-      image: "/gian.png",
       category: "Media Literacy",
-      link: "/blogs/blog6",
+      href: "/blogs/blog6",
+      img: "/gian.png",
     },
   ];
 
-  /* ---------------------- FILTER + SEARCH ---------------------- */
-  const filteredBlogs = blogs.filter((b) => {
-    const matchTitle = b.title.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = category === "All" || b.category === category;
-    return matchTitle && matchCategory;
+  // FILTER SYSTEM
+  const filteredBlogs = blogs.filter((blog) => {
+    const matchesSearch = blog.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = category === "All" || blog.category === category;
+    return matchesSearch && matchesCategory;
   });
 
-  /* ---------------------- LOAD MORE ---------------------- */
-  const loadMore = () => setVisibleCount((prev) => prev + 3);
-
-  /* ---------------------- INITIAL EFFECTS ---------------------- */
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-
-    const timer = setTimeout(() => setLoading(false), 1200);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(timer);
-    };
-  }, []);
+  const visibleBlogs = filteredBlogs.slice(0, visibleCount);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913] pb-32">
+    <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
 
       {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
-      {/* THIN NAVBAR DIVIDER */}
-      <div className="border-b border-white/40 backdrop-blur-xl"></div>
-
-      {/* HERO BANNER */}
-      <section className="text-center mt-20 mb-16 px-4">
-        <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-md">
-          ZENITH MEDIA BLOGS
+      {/* MAGAZINE HEADER */}
+      <header className="pt-40 pb-10 text-center">
+        <h1 className="text-7xl font-serif font-bold text-white drop-shadow-lg tracking-tight">
+          Zenith Media Blogs
         </h1>
-        <p className="text-white/90 text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
-          A collection of narratives, reflections, and digital-age storytelling.
+        <p className="text-white/90 mt-4 text-lg tracking-wide">
+          Stories • Perspectives • Digital Voices
         </p>
-      </section>
+      </header>
 
-      {/* SEARCH BAR */}
-      <div className="flex justify-center mt-5 mb-12">
-        <input
-          type="text"
-          placeholder="Search articles..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-xl px-6 py-3 rounded-full shadow-md border border-gray-300 
-            focus:outline-none focus:border-[#923232] text-gray-700 text-lg"
-        />
-      </div>
+      {/* SEARCH + FILTERS */}
+      <div className="max-w-5xl mx-auto mt-10 px-6">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-      {/* CATEGORY FILTERS */}
-      <div className="flex justify-center gap-3 mb-16 flex-wrap">
-        {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setCategory(cat)}
-            className={`px-5 py-2 rounded-full border text-sm transition 
-              ${
-                category === cat
-                  ? "bg-[#923232] text-white border-[#923232]"
-                  : "bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
-              }
-            `}
-          >
-            {cat}
-          </button>
-        ))}
+          {/* Search Bar */}
+          <input
+            type="text"
+            placeholder="Search blog titles..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full md:w-1/2 px-5 py-3 rounded-xl bg-white/60 backdrop-blur border border-white/40 shadow-sm focus:outline-none"
+          />
+
+          {/* Category Filters */}
+          <div className="flex gap-3 overflow-x-auto">
+            {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  category === cat
+                    ? "bg-white text-[#923232] shadow"
+                    : "bg-white/40 text-white hover:bg-white/60"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* PINTEREST GRID */}
-      <div className="px-10 columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 px-8 mt-16 pb-32">
+        
+        {visibleBlogs.map((blog, i) => (
+          <a
+            key={i}
+            href={blog.href}
+            className="group block mb-8 break-inside-avoid rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:rotate-[0.5deg]"
+          >
+            {/* Lazy Load Image */}
+            <div className="relative w-full h-60 overflow-hidden">
+              <Image
+                src={blog.img}
+                alt={blog.title}
+                fill
+                className="object-cover transition-all duration-700 blur-sm group-hover:blur-0 scale-110 group-hover:scale-100"
+              />
+            </div>
 
-        {loading &&
-          [...Array(6)].map((_, i) => <SkeletonCard key={i} />)}
-
-        {!loading &&
-          filteredBlogs.slice(0, visibleCount).map((b, i) => (
-            <a
-              key={i}
-              href={b.link}
-              className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md 
-                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 tilt"
-            >
-              <LazyImage src={b.image} alt={b.title} />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-[#6A4B3C]">{b.title}</h2>
-                <p className="text-xs text-[#6A4B3C]/70 mt-2">
-                  By {b.author} <br /> {b.date}
-                </p>
-              </div>
-            </a>
-          ))}
+            {/* Info */}
+            <div className="p-5">
+              <p className="text-xs uppercase tracking-wide text-gray-400 mb-1">
+                {blog.category}
+              </p>
+              <h2 className="text-lg font-semibold text-[#6A4B3C] leading-tight">
+                {blog.title}
+              </h2>
+              <p className="text-xs text-gray-500 mt-2">
+                {blog.author} <br /> {blog.date}
+              </p>
+            </div>
+          </a>
+        ))}
 
       </div>
 
       {/* LOAD MORE BUTTON */}
-      {!loading && visibleCount < filteredBlogs.length && (
-        <div className="flex justify-center mt-12">
+      {visibleCount < filteredBlogs.length && (
+        <div className="text-center pb-20">
           <button
-            onClick={loadMore}
-            className="px-8 py-3 bg-white rounded-full shadow-md border hover:bg-gray-100 transition"
+            onClick={() => setVisibleCount((prev) => prev + 3)}
+            className="px-6 py-3 bg-white/80 rounded-full font-medium text-[#923232] shadow hover:bg-white transition"
           >
             Load More
           </button>
         </div>
       )}
 
-      {/* STYLES */}
-      <style jsx>{`
-        .skeleton {
-          background: linear-gradient(
-            90deg,
-            #e0e0e0 25%,
-            #f3f3f3 50%,
-            #e0e0e0 75%
-          );
-          background-size: 200% 100%;
-          animation: shimmer 1.3s infinite;
-        }
-        @keyframes shimmer {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-        .tilt:hover {
-          transform: perspective(700px) rotateX(2deg) rotateY(-2deg);
-        }
-      `}</style>
     </main>
-  );
-}
-
-/* ---------------------- LAZY LOADED IMAGE ---------------------- */
-function LazyImage({ src, alt }) {
-  const imgRef = useRef(null);
-  const [loaded, setLoaded] = useState(false);
-
-  return (
-    <img
-      ref={imgRef}
-      src={src}
-      alt={alt}
-      onLoad={() => setLoaded(true)}
-      className={`w-full h-auto object-cover transition 
-        ${loaded ? "blur-0" : "blur-md scale-105"} duration-300`}
-    />
-  );
-}
-
-/* ---------------------- SKELETON CARD ---------------------- */
-function SkeletonCard() {
-  return (
-    <div className="break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md">
-      <div className="w-full h-56 skeleton"></div>
-      <div className="p-4 space-y-3">
-        <div className="h-4 w-3/4 skeleton rounded"></div>
-        <div className="h-3 w-1/2 skeleton rounded"></div>
-      </div>
-    </div>
   );
 }
