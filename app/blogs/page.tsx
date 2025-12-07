@@ -2,13 +2,14 @@
 
 import { Navigation } from "@/components/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogsPage() {
   const [scrolled, setScrolled] = useState(false);
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("All");
+  const [filter, setFilter] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
+  const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -51,20 +52,12 @@ export default function BlogsPage() {
       img: "/dawn.jpg",
     },
     {
-      title: "My Dad Does Not Listen To Me– A Communication Student",
+      title: "My Dad Does Not Listen To Me – A Communication Student",
       author: "Satur Boy Gawec",
       date: "02 November 2025",
       category: "Media Literacy",
       href: "/blogs/blog5",
       img: "/satur.jpg",
-    },
-    {
-    title: "NO ORIGINAL THOUGHT",
-    author: "Jeffrey Dones",
-    date: "06 November 2025",
-    category: "Media Literacy",
-    href: "/blogs/blog7",
-    img: "/jeff.png",
     },
     {
       title: "Drowning in Headlines: When Floods & Falsehoods Collide",
@@ -74,107 +67,124 @@ export default function BlogsPage() {
       href: "/blogs/blog6",
       img: "/gian.png",
     },
+    {
+      title: "NO ORIGINAL THOUGHT",
+      author: "Jeffrey Dones",
+      date: "06 November 2025",
+      category: "Media Literacy",
+      href: "/blogs/blog7",
+      img: "/jeff.png",
+    },
   ];
 
-  // FILTER SYSTEM
-  const filteredBlogs = blogs.filter((blog) => {
-    const matchesSearch = blog.title.toLowerCase().includes(search.toLowerCase());
-    const matchesCategory = category === "All" || blog.category === category;
-    return matchesSearch && matchesCategory;
+  // FILTERED + SEARCHED LIST
+  const filteredBlogs = blogs.filter((b) => {
+    const matchFilter = filter === "All" || b.category === filter;
+    const matchSearch = b.title.toLowerCase().includes(search.toLowerCase());
+    return matchFilter && matchSearch;
   });
 
-  const visibleBlogs = filteredBlogs.slice(0, visibleCount);
+  // LOAD MORE
+  const loadMore = () => {
+    setLoadingMore(true);
+    setTimeout(() => {
+      setVisibleCount((prev) => prev + 6);
+      setLoadingMore(false);
+    }, 700);
+  };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
+    <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913] pb-32">
 
       {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
-      {/* MAGAZINE HEADER */}
-      <header className="pt-40 pb-10 text-center">
-        <h1 className="text-7xl font-serif font-bold text-white drop-shadow-lg tracking-tight">
-          Zenith Media Blogs
-        </h1>
-        <p className="text-white/90 mt-4 text-lg tracking-wide">
-          Stories • Perspectives • Digital Voices
-        </p>
-      </header>
+      {/* HEADER */}
+      <div className="pt-32 px-10 text-[#691f1f]">
+        <h1 className="text-6xl font-serif font-bold mb-2">Blogs</h1>
 
-      {/* SEARCH + FILTERS */}
-      <div className="max-w-5xl mx-auto mt-10 px-6">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search blog titles..."
+          className="mt-6 w-full max-w-xl px-4 py-3 rounded-xl bg-white/80 backdrop-blur text-black shadow-md outline-none"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-          {/* Search Bar */}
-          <input
-            type="text"
-            placeholder="Search blog titles..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-1/2 px-5 py-3 rounded-xl bg-white/60 backdrop-blur border border-white/40 shadow-sm focus:outline-none"
-          />
-
-          {/* Category Filters */}
-          <div className="flex gap-3 overflow-x-auto">
-            {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  category === cat
-                    ? "bg-white text-[#923232] shadow"
-                    : "bg-white/40 text-white hover:bg-white/60"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        {/* Category Filters */}
+        <div className="flex gap-3 mt-6 flex-wrap">
+          {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`
+                px-4 py-1.5 rounded-full border text-sm transition
+                ${filter === cat
+                  ? "bg-[#691f1f] text-white border-[#691f1f]"
+                  : "bg-white/70 backdrop-blur border-[#691f1f]/40 text-[#691f1f] hover:bg-white"}
+              `}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* PINTEREST GRID */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 px-8 mt-16 pb-32">
-        
-        {visibleBlogs.map((blog, i) => (
-          <a
-            key={i}
-            href={blog.href}
-            className="group block mb-8 break-inside-avoid rounded-xl overflow-hidden bg-white shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 hover:rotate-[0.5deg]"
-          >
-            {/* Lazy Load Image */}
-            <div className="relative w-full h-60 overflow-hidden">
-              <Image
-                src={blog.img}
-                alt={blog.title}
-                fill
-                className="object-cover transition-all duration-700 blur-sm group-hover:blur-0 scale-110 group-hover:scale-100"
-              />
-            </div>
+      {/* BLOGS GRID – PINTEREST STYLE */}
+      <div className="px-10 mt-12 columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
 
-            {/* Info */}
-            <div className="p-5">
-              <p className="text-xs uppercase tracking-wide text-gray-400 mb-1">
-                {blog.category}
-              </p>
-              <h2 className="text-lg font-semibold text-[#6A4B3C] leading-tight">
-                {blog.title}
-              </h2>
-              <p className="text-xs text-gray-500 mt-2">
-                {blog.author} <br /> {blog.date}
-              </p>
+        {filteredBlogs.slice(0, visibleCount).map((b, i) => (
+          <Link
+            key={i}
+            href={b.href}
+            className="break-inside-avoid block transform transition hover:-translate-y-1 hover:scale-[1.02]"
+          >
+            {/* Card */}
+            <div className="rounded-2xl shadow-lg overflow-hidden bg-white">
+
+              {/* Not lazy loaded */}
+              <img
+                src={b.img}
+                className="w-full h-56 object-cover"
+              />
+
+              <div className="p-5">
+                <p className="text-xs uppercase tracking-wide text-[#a3452d]">
+                  {b.category}
+                </p>
+
+                <h2 className="text-lg font-semibold text-[#522015] mt-1">
+                  {b.title}
+                </h2>
+
+                <p className="text-xs text-[#522015]/60 mt-2">
+                  {b.author} <br /> {b.date}
+                </p>
+              </div>
             </div>
-          </a>
+          </Link>
         ))}
 
+        {/* SKELETON LOADING */}
+        {loadingMore && (
+          <>
+            {[1, 2, 3].map((n) => (
+              <div
+                key={n}
+                className="break-inside-avoid w-full h-72 bg-white/50 backdrop-blur rounded-2xl shadow animate-pulse"
+              />
+            ))}
+          </>
+        )}
       </div>
 
       {/* LOAD MORE BUTTON */}
       {visibleCount < filteredBlogs.length && (
-        <div className="text-center pb-20">
+        <div className="flex justify-center mt-10">
           <button
-            onClick={() => setVisibleCount((prev) => prev + 3)}
-            className="px-6 py-3 bg-white/80 rounded-full font-medium text-[#923232] shadow hover:bg-white transition"
+            onClick={loadMore}
+            className="px-6 py-3 rounded-full bg-white text-[#691f1f] font-semibold shadow hover:scale-105 transition"
           >
             Load More
           </button>
