@@ -15,13 +15,13 @@ export function FooterContact() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-8">
+
           {/* Left Column - About */}
           <div className="space-y-2">
             <h3 className="font-serif text-2xl font-bold italic">WE ARE</h3>
             <h3 className="font-serif text-2xl font-bold italic">ZENITH MEDIA!</h3>
             <p className="text-white/80 leading-relaxed text-xs">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.
+              Creating meaningful and impactful learning materials for a media-literate society.
             </p>
           </div>
 
@@ -29,24 +29,12 @@ export function FooterContact() {
           <div className="space-y-2">
             <h3 className="font-serif text-2xl font-bold italic">QUICKLINKS</h3>
             <nav className="flex flex-col gap-1">
-              <Link href="/about" className="text-white/80 hover:text-white transition-colors text-xs">
-                ABOUT US
-              </Link>
-              <Link href="/videos" className="text-white/80 hover:text-white transition-colors text-xs">
-                VIDEOS
-              </Link>
-              <Link href="/blogs" className="text-white/80 hover:text-white transition-colors text-xs">
-                BLOGS
-              </Link>
-              <Link href="/visuals" className="text-white/80 hover:text-white transition-colors text-xs">
-                VISUALS
-              </Link>
-              <Link href="/entertainment" className="text-white/80 hover:text-white transition-colors text-xs">
-                ENTERTAINMENT
-              </Link>
-              <Link href="/connect" className="text-white/80 hover:text-white transition-colors text-xs">
-                CONNECT
-              </Link>
+              <Link href="/about" className="text-white/80 hover:text-white transition-colors text-xs">ABOUT US</Link>
+              <Link href="/videos" className="text-white/80 hover:text-white transition-colors text-xs">VIDEOS</Link>
+              <Link href="/blogs" className="text-white/80 hover:text-white transition-colors text-xs">BLOGS</Link>
+              <Link href="/visuals" className="text-white/80 hover:text-white transition-colors text-xs">VISUALS</Link>
+              <Link href="/entertainment" className="text-white/80 hover:text-white transition-colors text-xs">ENTERTAINMENT</Link>
+              <Link href="/connect" className="text-white/80 hover:text-white transition-colors text-xs">CONNECT</Link>
             </nav>
           </div>
 
@@ -54,29 +42,61 @@ export function FooterContact() {
           <div className="space-y-2">
             <h3 className="font-serif text-2xl font-bold italic">CONTACT</h3>
             <h3 className="font-serif text-2xl font-bold italic">US</h3>
+
             <div className="flex flex-col gap-1">
-              <a href="#" className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2">
+
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/share/19en1MXX7n/?mibextid=wwXIfr"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2"
+              >
                 <Facebook className="w-3 h-3" />
                 FACEBOOK
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2">
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/zenithmedia.ph?igsh=M3Z4NXp1ejlrd3ps"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2"
+              >
                 <Instagram className="w-3 h-3" />
                 INSTAGRAM
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2">
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@zenithmedia.ph?_r=1&_t=ZS-921NxvYtoiT"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2"
+              >
+                {/* TikTok SVG */}
                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                 </svg>
                 TIKTOK
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2">
+
+              {/* YouTube */}
+              <a
+                href="https://youtube.com/@zenithmediaorg?si=pN8uuh5fikNL3yHe"
+                target="_blank"
+                className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2"
+              >
                 <Youtube className="w-3 h-3" />
                 YOUTUBE
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2">
+
+              {/* Gmail */}
+              <a
+                href="mailto:zenithmedia@gmail.com"
+                className="text-white/80 hover:text-white transition-colors text-xs flex items-center gap-2"
+              >
                 <Mail className="w-3 h-3" />
                 GMAIL
               </a>
+
             </div>
           </div>
         </div>
