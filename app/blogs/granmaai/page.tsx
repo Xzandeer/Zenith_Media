@@ -37,7 +37,7 @@ export default function GrandmaAI() {
         {/* Header Image */}
         <div className="w-full h-[380px] md:h-[460px] mb-12 overflow-hidden rounded-lg animate-fadeInSlow">
           <img
-            src="/GRANDMAAI.jpg"
+            src="/samblog.png"
             alt="Blog Thumbnail"
             className="w-full h-full object-cover"
           />
@@ -168,3 +168,4 @@ export default function GrandmaAI() {
     </main>
   );
 }
+
