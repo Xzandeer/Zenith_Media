@@ -24,7 +24,6 @@ const visualsData: Record<string, string[]> = {
     "/social-media-graphics-template.jpg",
   ],
   "Art Cards": [
-    "/visual1.png",
     "/visual2.png",
     "/visual3.png",
     "/visual4.png",
