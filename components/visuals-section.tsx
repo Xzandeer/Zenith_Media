@@ -11,7 +11,6 @@ const visualsData: Record<string, string[]> = {
     "/Infographics_3.png",
     "/Infographics_4.png",
     "/Infographics_5.png",
-    "/Infographics_6.png",
   ],
   Posters: [
     "/creative-poster-design-media.jpg",
