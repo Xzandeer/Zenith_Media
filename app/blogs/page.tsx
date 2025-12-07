@@ -51,9 +51,9 @@ export default function BlogsPage() {
             href="/blogs/notposting"
             className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
           >
-            <img src="/NOTPOSTING.jpg" className="w-full h-56 object-cover" />
+            <img src="/princess.png" className="w-full h-56 object-cover" />
             <div className="bg-[#C38A5B] p-5 text-white">
-              <h2 className="text-lg font-semibold">Not Posting Everything Anymore.. I guess?</h2>
+              <h2 className="text-lg font-semibold text-[#6A4B3C]">Not Posting Everything Anymore.. I guess?</h2>
               <p className="text-xs text-[#6A4B3C]/70 mt-2">
                 By Princess Czyrah Jubilo <br />
                 30 October 2025
