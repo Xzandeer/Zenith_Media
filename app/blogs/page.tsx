@@ -14,12 +14,10 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
-      
       {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
       <div className="px-10 py-32">
-        
         {/* PAGE HEADER */}
         <h1 className="text-6xl font-bold font-serif text-[#923232] mb-3">
           BLOGS
@@ -47,7 +45,7 @@ export default function BlogsPage() {
             </div>
           </a>
 
-          {/* ---- NEW BLOG: NOT POSTING ---- */}
+          {/* ---- BLOG 2: NOT POSTING ---- */}
           <a
             href="/blogs/notposting"
             className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
@@ -64,14 +62,22 @@ export default function BlogsPage() {
             </div>
           </a>
 
-          {/* ---- BLOG 2 Placeholder ---- */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="w-full h-56 bg-gray-300"></div>
-            <div className="bg-[#C25A5A] p-5 text-white">
-              <h2 className="text-lg font-semibold">Coming Soon</h2>
-              <p className="text-xs mt-2">More posts will be added soon.</p>
+          {/* ---- BLOG 3: GRANDMA AI ---- */}
+          <a
+            href="/blogs/granmaai"
+            className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
+          >
+            <img src="/samblog.png" className="w-full h-56 object-cover" />
+            <div className="bg-[#D7CBB2] p-5">
+              <h2 className="text-lg font-semibold text-[#6A4B3C]">
+                The Time I Tried (and Failed) to Explain AI Voices to Grandma
+              </h2>
+              <p className="text-xs text-[#6A4B3C]/70 mt-2">
+                By Samantha Nicole Borres <br />
+                30 October 2025
+              </p>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
