@@ -47,7 +47,8 @@ export function ContactSection() {
                   <Facebook className="w-6 h-6 text-white" />
                 </a>
                 <a
-                  href="#"
+                  href="www.facebook.com/share/19en1MXX7n/?mibextid=wwXIfr"
+"
                   className="w-12 h-12 rounded-full bg-[#B5452E] flex items-center justify-center hover:bg-[#B5452E]/90 transition-colors"
                 >
                   <Instagram className="w-6 h-6 text-white" />
