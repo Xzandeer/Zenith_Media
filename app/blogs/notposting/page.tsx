@@ -11,7 +11,7 @@ export default function NotPosting() {
 
         {/* Author */}
         <p className="text-gray-500 mb-8 text-sm">
-          <span className="font-medium">By Princess Czyrah Jubilo</span> — {new Date().toLocaleDateString()}
+          <span className="font-medium">By Princess Czyrah Jubilo</span> — Oct 30, 2025
         </p>
 
         {/* Thumbnail */}
