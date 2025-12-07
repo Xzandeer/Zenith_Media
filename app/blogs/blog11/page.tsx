@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/navigation";
 
-export default function Blog10Page() {
+export default function Blog11Page() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
       {/* NAVIGATION */}
@@ -20,3 +20,4 @@ export default function Blog10Page() {
     </main>
   );
 }
+
