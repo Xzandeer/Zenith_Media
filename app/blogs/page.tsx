@@ -84,7 +84,7 @@ export default function BlogsPage() {
             href="/blogs/blog4"
             className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
           >
-            <img src="/dawn.jpg" className="w-full h-56 object-cover" />
+            <img src="/dawn.png" className="w-full h-56 object-cover" />
             <div className="bg-[#C25A5A] p-5 text-white">
               <h2 className="text-lg font-semibold">
                 As Cliché as It Sounds, Think Before You Click
@@ -109,6 +109,23 @@ export default function BlogsPage() {
               <p className="text-xs text-[#6A4B3C]/70 mt-2">
                 By Satur Boy Gawec <br />
                 02 November 2025
+              </p>
+            </div>
+          </a>
+
+          {/* ---- BLOG 6: FLOODS & FALSEHOODS ---- */}
+          <a
+            href="/blogs/blog6"
+            className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
+          >
+            <img src="/gian.png" className="w-full h-56 object-cover" />
+            <div className="bg-[#C38A5B] p-5 text-white">
+              <h2 className="text-lg font-semibold">
+                Drowning in Headlines: When Floods and Falsehoods Collide in the Age of TikTok News
+              </h2>
+              <p className="text-xs mt-2">
+                By Gian Andres <br />
+                31 October 2025
               </p>
             </div>
           </a>
