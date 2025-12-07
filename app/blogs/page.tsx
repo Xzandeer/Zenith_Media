@@ -74,7 +74,7 @@ const BLOGS = [
     title: "Marhaba— I Mean, Mabuhay!",
     author: "Albeira Cruz",
     date: "02 November 2025",
-    thumbnail: "/albs.png",
+    thumbnail: "/albs.jpg",
     href: "/blogs/blog9",
     category: "Personal",
   },
