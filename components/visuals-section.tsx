@@ -50,11 +50,14 @@ export function VisualsSection() {
   return (
     <section
       id="visuals"
-      className="py-24 px-6 bg-white bg-cover bg-center bg-fixed"
+      className="relative py-24 px-6 bg-fixed bg-center bg-cover bg-no-repeat"
       style={{ backgroundImage: "url('/BACKGROUND.png')" }}
     >
-      <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-6xl font-bold text-[#1F3E8A] mb-12">Visuals</h2>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      <div className="relative max-w-7xl mx-auto">
+        <h2 className="font-serif text-6xl font-bold text-white mb-12">Visuals</h2>
 
         <div className="flex gap-4 mb-12">
           {tabs.map((tab) => (
