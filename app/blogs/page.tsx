@@ -8,7 +8,6 @@ export default function BlogsPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
-
   const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export default function BlogsPage() {
       category: "Media Literacy",
     },
     {
-      title: "Drowning in Headlines: When Floods and Falsehoods Collide",
+      title: "Drowning in Headlines",
       author: "Gian Andres",
       date: "October 31, 2025",
       img: "/gian.png",
@@ -100,14 +99,12 @@ export default function BlogsPage() {
     },
   ];
 
-  // SEARCH + CATEGORY FILTER
   const filteredBlogs = blogs.filter((blog) => {
     const matchesSearch = blog.title.toLowerCase().includes(search.toLowerCase());
     const matchesCategory = category === "All" || blog.category === category;
     return matchesSearch && matchesCategory;
   });
 
-  // LOAD MORE (INFINITE SCROLL SIMULATION)
   const visibleBlogs = filteredBlogs.slice(0, visibleCount);
 
   const loadMore = () => {
@@ -120,11 +117,9 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-[#f6f3ef] pb-20">
-
-      {/* MAGAZINE HEADER */}
       <header
         className={`w-full sticky top-0 z-30 transition-all duration-300 ${
-          scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : "bg-transparent"
+          scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 py-6 flex flex-col items-center">
@@ -132,16 +127,14 @@ export default function BlogsPage() {
             Zenith Media Journal
           </h1>
 
-          {/* SEARCH */}
           <input
             type="text"
             placeholder="Search blog titles..."
-            className="mt-5 px-5 py-2 w-full max-w-xl rounded-full border border-gray-300 text-sm shadow-sm focus:outline-none"
+            className="mt-5 px-5 py-2 w-full max-w-xl rounded-full border border-gray-300 text-sm shadow-sm"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
 
-          {/* FILTER BUTTONS */}
           <div className="flex gap-4 mt-4">
             {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
               <button
@@ -160,22 +153,17 @@ export default function BlogsPage() {
         </div>
       </header>
 
-      {/* BLOG GRID */}
       <section className="max-w-7xl mx-auto px-10 mt-14">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
-
           {visibleBlogs.map((blog, index) => (
             <Link
               key={index}
               href={blog.href}
-              className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition shadow duration-300 hover:-translate-y-1"
+              className="block break-inside-avoid rounded-xl bg-white shadow-md hover:shadow-xl transition hover:-translate-y-1"
             >
               <img src={blog.img} className="w-full h-auto object-cover" />
-
               <div className="p-5">
-                <h2 className="text-lg font-semibold text-[#6A4B3C]">
-                  {blog.title}
-                </h2>
+                <h2 className="text-lg font-semibold text-[#6A4B3C]">{blog.title}</h2>
                 <p className="text-xs text-gray-500 mt-1">
                   {blog.author} • {blog.date}
                 </p>
@@ -186,17 +174,12 @@ export default function BlogsPage() {
             </Link>
           ))}
 
-          {/* SKELETON LOADER when loading more */}
           {loadingMore &&
             [...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="w-full h-56 bg-gray-200 animate-pulse rounded-xl"
-              ></div>
+              <div key={i} className="w-full h-56 bg-gray-200 animate-pulse rounded-xl" />
             ))}
         </div>
 
-        {/* LOAD MORE BUTTON */}
         {visibleCount < filteredBlogs.length && (
           <div className="flex justify-center mt-10">
             <button
