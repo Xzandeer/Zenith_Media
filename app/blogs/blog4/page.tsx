@@ -120,17 +120,18 @@ export default function ThinkBeforeYouClick() {
 
         {/* Like + Comment */}
         <div className="mt-16 flex items-center gap-6 animate-fadeInSlow">
-          <button
-            onClick={() => setLikes(likes + 1)}
-            className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 transition"
-          >
-            ❤️ Like <span className="text-sm text-gray-600">{likes}</span>
-          </button>
+  <button
+    onClick={() => setLikes(likes + 1)}
+    className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 transition"
+  >
+    ❤️ Like <span className="text-sm text-gray-600">{likes}</span>
+  </button>
 
-          <button className="px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 transition">
-            💬 Comment
-          </button>
-        </div>
+  <button className="px-4 py-2 border border-gray-300 rounded-full hover:bg-gray-100 transition">
+    💬 Comment
+  </button>
+</div>
+
 
         {/* More Stories */}
         <div className="mt-24 animate-fadeInSlow">
@@ -205,5 +206,6 @@ export default function ThinkBeforeYouClick() {
     </main>
   );
 }
+
 
 
