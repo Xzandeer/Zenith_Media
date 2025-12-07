@@ -14,13 +14,20 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
+      
+      {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
       <div className="px-10 py-32">
+        
+        {/* PAGE HEADER */}
         <h1 className="text-6xl font-bold font-serif text-[#923232] mb-3">
           BLOGS
         </h1>
 
+        <p className="text-[17px] text-[#923232]/70 mb-14 max-w-2xl"></p>
+
+        {/* BLOG GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 
           {/* ---- BLOG 1 ---- */}
