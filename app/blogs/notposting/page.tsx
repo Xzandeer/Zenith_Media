@@ -17,7 +17,7 @@ export default function NotPosting() {
         {/* Thumbnail */}
         <div className="w-full h-64 md:h-80 overflow-hidden rounded-xl mb-10">
           <img
-            src="/NOTPOSTING.jpg"
+            src="/princess.png"
             alt="Blog Thumbnail"
             className="w-full h-full object-cover"
           />
