@@ -84,7 +84,7 @@ export default function BlogsPage() {
             href="/blogs/blog4"
             className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
           >
-            <img src="/dawn.jpg" className="w-full h-56 object-cover" />
+            <img src="/dawn.png" className="w-full h-56 object-cover" />
             <div className="bg-[#C25A5A] p-5 text-white">
               <h2 className="text-lg font-semibold">
                 As Cliché as It Sounds, Think Before You Click
@@ -92,6 +92,23 @@ export default function BlogsPage() {
               <p className="text-xs mt-2">
                 By Dawn Faith Montefalco <br />
                 06 November 2025
+              </p>
+            </div>
+          </a>
+
+          {/* ---- BLOG 5: DAD DOES NOT LISTEN ---- */}
+          <a
+            href="/blogs/blog5"
+            className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
+          >
+            <img src="/satur.jpg" className="w-full h-56 object-cover" />
+            <div className="bg-[#D7CBB2] p-5">
+              <h2 className="text-lg font-semibold text-[#6A4B3C]">
+                My Dad Does Not Listen To Me — A Communication Student
+              </h2>
+              <p className="text-xs text-[#6A4B3C]/70 mt-2">
+                By Satur Boy Gawec <br />
+                02 November 2025
               </p>
             </div>
           </a>
