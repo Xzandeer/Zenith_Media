@@ -1,21 +1,26 @@
 export default function ArtificialJoy() {
   return (
-    <main className="min-h-screen bg-[#f7f4ef] py-16 px-4">
-      {/* Document Container */}
-      <article className="max-w-3xl mx-auto bg-white shadow-md rounded-2xl p-8 md:p-12 leading-relaxed border border-gray-200">
+    <main className="min-h-screen bg-white text-[#1a1a1a] px-5 pt-10 pb-32">
+
+      {/* Container */}
+      <article className="max-w-3xl mx-auto">
 
         {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#b23b23] mb-2">
+        <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 leading-tight">
           The Artificial Joy Residing in our Home
         </h1>
 
-        {/* Author */}
-        <p className="text-gray-500 mb-8 text-sm">
-          <span className="font-medium">By Kristel Reyes</span> — Oct 30, 2025
-        </p>
+        {/* Author Section — Medium style */}
+        <div className="flex items-center gap-3 mb-10">
+          <div className="w-10 h-10 rounded-full bg-gray-300"></div> {/* Avatar placeholder */}
+          <div>
+            <p className="text-sm font-medium">Kristel Reyes</p>
+            <p className="text-xs text-gray-500">Oct 30, 2025 · 6 min read</p>
+          </div>
+        </div>
 
-        {/* Thumbnail */}
-        <div className="w-full h-64 md:h-80 overflow-hidden rounded-xl mb-10">
+        {/* Header Image — Full width, Medium style */}
+        <div className="w-full h-[380px] md:h-[460px] mb-12 overflow-hidden rounded-lg">
           <img
             src="/BLOG1.jpg"
             alt="Blog Thumbnail"
@@ -23,8 +28,9 @@ export default function ArtificialJoy() {
           />
         </div>
 
-        {/* Article Body */}
-        <div className="prose prose-neutral prose-lg max-w-none">
+        {/* Article Body — Medium typography */}
+        <div className="prose prose-lg prose-gray max-w-none leading-relaxed">
+
           <p>
             Would you ask someone to get out of the pool while they’re having so much fun,
             even if they just jumped in a few minutes ago?
@@ -46,7 +52,7 @@ export default function ArtificialJoy() {
             <b> #feelingblessed </b> caption. But blessed who, exactly?
           </p>
 
-          <h3 className="text-2xl font-semibold mt-10 mb-3">
+          <h3 className="text-2xl font-semibold mt-10 mb-4 leading-snug">
             Who benefits from these AI-generated images with real people’s faces plastered
             on a robot’s canvas, apart from our distorted perception of beauty?
           </h3>
@@ -109,17 +115,18 @@ export default function ArtificialJoy() {
             them how to swim.
           </p>
 
-          <h4 className="mt-10 font-semibold">References:</h4>
+          <h4 className="mt-10 font-semibold">References</h4>
           <p>
-            <a href="https://share.google/M7Zg9Aj5WHf1ZUE9" className="text-blue-600 underline">
+            <a href="https://share.google/M7Zg9Aj5WHf1ZUE9" className="text-green-700 underline">
               https://share.google/M7Zg9Aj5WHf1ZUE9
             </a>
             <br />
-            <a href="https://share.google/7QSNGIHnM2PdrUoKFI" className="text-blue-600 underline">
+            <a href="https://share.google/7QSNGIHnM2PdrUoKFI" className="text-green-700 underline">
               https://share.google/7QSNGIHnM2PdrUoKFI
             </a>
           </p>
         </div>
+
       </article>
     </main>
   );
