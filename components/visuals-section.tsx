@@ -16,9 +16,6 @@ const visualsData: Record<string, string[]> = {
     "/Poster_1.png",
     "/Poster_2.png",
     "/Poster_3.png",
-    "/Poster_4.png",
-    "/Poster_5.png",
-    "/Poster_6.png",
   ],
   "Data Tools": [
     "/data-visualization-dashboard.png",
