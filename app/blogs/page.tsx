@@ -70,42 +70,6 @@ export default function BlogsPage() {
             </div>
           </div>
 
-          {/* ---- BLOG 3 ---- */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="w-full h-56 bg-gray-300"></div>
-            <div className="bg-[#C38A5B] p-5 text-white">
-              <h2 className="text-lg font-semibold">Coming Soon</h2>
-              <p className="text-xs mt-2">More posts will be added soon.</p>
-            </div>
-          </div>
-
-          {/* ---- BLOG 4 ---- */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="w-full h-56 bg-gray-300"></div>
-            <div className="bg-[#D7CBB2] p-5 text-[#6A4B3C]">
-              <h2 className="text-lg font-semibold">Coming Soon</h2>
-              <p className="text-xs mt-2">More posts will be added soon.</p>
-            </div>
-          </div>
-
-          {/* ---- BLOG 5 ---- */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="w-full h-56 bg-gray-300"></div>
-            <div className="bg-[#C25A5A] p-5 text-white">
-              <h2 className="text-lg font-semibold">Coming Soon</h2>
-              <p className="text-xs mt-2">More posts will be added soon.</p>
-            </div>
-          </div>
-
-          {/* ---- BLOG 6 ---- */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="w-full h-56 bg-gray-300"></div>
-            <div className="bg-[#C38A5B] p-5 text-white">
-              <h2 className="text-lg font-semibold">Coming Soon</h2>
-              <p className="text-xs mt-2">More posts will be added soon.</p>
-            </div>
-          </div>
-
         </div>
       </div>
     </main>
