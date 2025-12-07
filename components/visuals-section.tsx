@@ -45,6 +45,7 @@ const visualsData: Record<string, string[]> = {
 
 export function VisualsSection() {
   const [activeTab, setActiveTab] = useState("Infographics")
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const visuals = visualsData[activeTab]
 
@@ -74,6 +75,7 @@ export function VisualsSection() {
             <div
               key={index}
               className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              onClick={() => setSelectedImage(visual)}
             >
               <img
                 src={visual || "/placeholder.svg"}
@@ -84,6 +86,19 @@ export function VisualsSection() {
           ))}
         </div>
       </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <img
+            src={selectedImage}
+            alt="Expanded visual"
+            className="max-w-[90%] max-h-[90%] rounded-xl shadow-xl"
+          />
+        </div>
+      )}
     </section>
   )
 }
