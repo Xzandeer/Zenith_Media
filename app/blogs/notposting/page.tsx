@@ -137,7 +137,7 @@ export default function NotPosting() {
             <Link href="/blogs/granmaai" className="group">
               <div className="w-full h-40 overflow-hidden rounded-lg mb-3">
                 <img
-                  src="/GRANDMAAI.jpg"
+                  src="/samblog.png"
                   alt="Grandma AI Thumbnail"
                   className="w-full h-full object-cover group-hover:opacity-90 transition"
                 />
