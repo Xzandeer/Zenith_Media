@@ -37,7 +37,7 @@ export default function ThinkBeforeYouClick() {
         {/* Header Image - TEMP placeholder (you can update file) */}
         <div className="w-full h-[380px] md:h-[460px] mb-12 overflow-hidden rounded-lg animate-fadeInSlow">
           <img
-            src="/dawn.png"
+            src="/dawn.jpg"
             alt="Think Before You Click Thumbnail"
             className="w-full h-full object-cover"
           />
@@ -205,4 +205,5 @@ export default function ThinkBeforeYouClick() {
     </main>
   );
 }
+
 
