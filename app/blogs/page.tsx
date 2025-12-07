@@ -17,13 +17,13 @@ export default function BlogsPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // BLOG LIST
+  // BLOG LIST WITH MULTI-CATEGORIES
   const blogs = [
     {
       title: "The Artificial Joy Residing in our Home",
       author: "Kristel Reyes",
       date: "30 October 2025",
-      category: "AI",
+      category: ["AI"],
       href: "/blogs/artificial-joy",
       img: "/BLOG1.jpg",
     },
@@ -31,7 +31,7 @@ export default function BlogsPage() {
       title: "Not Posting Everything Anymore.. I guess?",
       author: "Princess Czyrah Jubilo",
       date: "30 October 2025",
-      category: "Personal",
+      category: ["Personal"],
       href: "/blogs/notposting",
       img: "/princess.png",
     },
@@ -39,7 +39,7 @@ export default function BlogsPage() {
       title: "The Time I Tried (and Failed) to Explain AI Voices to Grandma",
       author: "Samantha Nicole Borres",
       date: "30 October 2025",
-      category: "AI",
+      category: ["AI"],
       href: "/blogs/granmaai",
       img: "/samblog.png",
     },
@@ -47,7 +47,7 @@ export default function BlogsPage() {
       title: "As Cliché as It Sounds, Think Before You Click",
       author: "Dawn Faith Montefalco",
       date: "06 November 2025",
-      category: "Media Literacy",
+      category: ["Media Literacy"],
       href: "/blogs/blog4",
       img: "/dawn.jpg",
     },
@@ -55,7 +55,7 @@ export default function BlogsPage() {
       title: "My Dad Does Not Listen To Me – A Communication Student",
       author: "Satur Boy Gawec",
       date: "02 November 2025",
-      category: "Media Literacy",
+      category: ["Media Literacy"],
       href: "/blogs/blog5",
       img: "/satur.jpg",
     },
@@ -63,7 +63,7 @@ export default function BlogsPage() {
       title: "Drowning in Headlines: When Floods & Falsehoods Collide",
       author: "Gian Andres",
       date: "31 October 2025",
-      category: "Media Literacy",
+      category: ["Media Literacy"],
       href: "/blogs/blog6",
       img: "/gian.png",
     },
@@ -71,17 +71,26 @@ export default function BlogsPage() {
       title: "NO ORIGINAL THOUGHT",
       author: "Jeffrey Dones",
       date: "06 November 2025",
-      category: "Media Literacy",
+      category: ["Media Literacy"],
       href: "/blogs/blog7",
       img: "/jeff.png",
+    },
+    {
+      title: "My for you page knows me too well and that’s where the problem starts…",
+      author: "Cearelle Joy Anolin",
+      date: "01 November 2025",
+      category: ["Media Literacy", "Personal"],
+      href: "/blogs/blog8",
+      img: "/ceablog.png",
     },
   ];
 
   // FILTERED + SEARCHED LIST
   const filteredBlogs = blogs.filter((b) => {
-    const matchFilter = filter === "All" || b.category === filter;
     const matchSearch = b.title.toLowerCase().includes(search.toLowerCase());
-    return matchFilter && matchSearch;
+    const matchFilter =
+      filter === "All" || (Array.isArray(b.category) && b.category.includes(filter));
+    return matchSearch && matchFilter;
   });
 
   // LOAD MORE
@@ -99,30 +108,39 @@ export default function BlogsPage() {
       {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
-      {/* HEADER */}
-      <div className="pt-32 px-10 text-[#691f1f]">
-        <h1 className="text-6xl font-serif font-bold mb-2">Blogs</h1>
+      {/* MAGAZINE HEADER */}
+      <div className="pt-32 px-10 text-center text-[#691f1f]">
+        <h1 className="text-7xl font-serif font-bold mb-3 tracking-tight">
+          Zenith Media Journal
+        </h1>
+        <p className="text-lg text-[#691f1f]/70 max-w-2xl mx-auto">
+          Stories, reflections, and perspectives from the digital age.
+        </p>
 
-        {/* Search */}
-        <input
-          type="text"
-          placeholder="Search blog titles..."
-          className="mt-6 w-full max-w-xl px-4 py-3 rounded-xl bg-white/80 backdrop-blur text-black shadow-md outline-none"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+        {/* Centered Search */}
+        <div className="flex justify-center mt-10">
+          <input
+            type="text"
+            placeholder="Search blog titles..."
+            className="w-full max-w-lg px-4 py-3 rounded-xl bg-white/80 backdrop-blur text-black shadow-md outline-none"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
 
         {/* Category Filters */}
-        <div className="flex gap-3 mt-6 flex-wrap">
+        <div className="flex justify-center gap-3 mt-6 flex-wrap">
           {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`
                 px-4 py-1.5 rounded-full border text-sm transition
-                ${filter === cat
-                  ? "bg-[#691f1f] text-white border-[#691f1f]"
-                  : "bg-white/70 backdrop-blur border-[#691f1f]/40 text-[#691f1f] hover:bg-white"}
+                ${
+                  filter === cat
+                    ? "bg-[#691f1f] text-white border-[#691f1f]"
+                    : "bg-white/70 backdrop-blur border-[#691f1f]/40 text-[#691f1f] hover:bg-white"
+                }
               `}
             >
               {cat}
@@ -140,18 +158,12 @@ export default function BlogsPage() {
             href={b.href}
             className="break-inside-avoid block transform transition hover:-translate-y-1 hover:scale-[1.02]"
           >
-            {/* Card */}
-            <div className="rounded-2xl shadow-lg overflow-hidden bg-white">
-
-              {/* Not lazy loaded */}
-              <img
-                src={b.img}
-                className="w-full h-56 object-cover"
-              />
+            <div className="rounded-2xl shadow-lg overflow-hidden bg-white hover:shadow-xl transition">
+              <img src={b.img} className="w-full h-56 object-cover" />
 
               <div className="p-5">
                 <p className="text-xs uppercase tracking-wide text-[#a3452d]">
-                  {b.category}
+                  {Array.isArray(b.category) ? b.category.join(" • ") : b.category}
                 </p>
 
                 <h2 className="text-lg font-semibold text-[#522015] mt-1">
@@ -166,7 +178,7 @@ export default function BlogsPage() {
           </Link>
         ))}
 
-        {/* SKELETON LOADING */}
+        {/* Skeleton Loaders */}
         {loadingMore && (
           <>
             {[1, 2, 3].map((n) => (
