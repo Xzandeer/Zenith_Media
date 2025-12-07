@@ -41,7 +41,7 @@ export default function BlogsPage() {
               </h2>
               <p className="text-xs text-[#6A4B3C]/70 mt-2">
                 By Kristel Reyes <br />
-                10 October 2025
+                30 October 2025
               </p>
             </div>
           </a>
@@ -53,10 +53,10 @@ export default function BlogsPage() {
           >
             <img src="/NOTPOSTING.jpg" className="w-full h-56 object-cover" />
             <div className="bg-[#C38A5B] p-5 text-white">
-              <h2 className="text-lg font-semibold">Not Posting</h2>
-              <p className="text-xs mt-2">
-                By Author <br />
-                {new Date().toLocaleDateString()}
+              <h2 className="text-lg font-semibold">Not Posting Everything Anymore.. I guess?</h2>
+              <p className="text-xs text-[#6A4B3C]/70 mt-2">
+                By Princess Czyrah Jubilo <br />
+                30 October 2025
               </p>
             </div>
           </a>
