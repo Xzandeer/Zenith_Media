@@ -6,12 +6,12 @@ const tabs = ["Infographics", "Posters", "Data Tools", "Art Cards"]
 
 const visualsData: Record<string, string[]> = {
   Infographics: [
-    "/modern-infographic-design-blue-red.jpg",
-    "/creative-poster-design-media.jpg",
-    "/data-visualization-dashboard.png",
-    "/social-media-graphics-template.jpg",
-    "/brand-identity-elements.png",
-    "/digital-marketing-collage.png",
+    "/Infographics_1.png",
+    "/Infographics_2.png",
+    "/Infographics_3.png",
+    "/Infographics_4.png",
+    "/Infographics_5.png",
+    "/Infographics_6.png",
   ],
   Posters: [
     "/creative-poster-design-media.jpg",
