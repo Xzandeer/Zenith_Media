@@ -52,10 +52,10 @@ export default function BlogsPage() {
           >
             <img src="/princess.png" className="w-full h-56 object-cover" />
             <div className="bg-[#C38A5B] p-5 text-white">
-              <h2 className="text-lg font-semibold text-[#6A4B3C]">
+              <h2 className="text-lg font-semibold">
                 Not Posting Everything Anymore.. I guess?
               </h2>
-              <p className="text-xs text-[#6A4B3C]/70 mt-2">
+              <p className="text-xs mt-2">
                 By Princess Czyrah Jubilo <br />
                 30 October 2025
               </p>
@@ -75,6 +75,23 @@ export default function BlogsPage() {
               <p className="text-xs text-[#6A4B3C]/70 mt-2">
                 By Samantha Nicole Borres <br />
                 30 October 2025
+              </p>
+            </div>
+          </a>
+
+          {/* ---- BLOG 4: THINK BEFORE YOU CLICK ---- */}
+          <a
+            href="/blogs/blog4"
+            className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
+          >
+            <img src="/dawn.png" className="w-full h-56 object-cover" />
+            <div className="bg-[#C25A5A] p-5 text-white">
+              <h2 className="text-lg font-semibold">
+                As Cliché as It Sounds, Think Before You Click
+              </h2>
+              <p className="text-xs mt-2">
+                By Dawn Faith Montefalco <br />
+                06 November 2025
               </p>
             </div>
           </a>
