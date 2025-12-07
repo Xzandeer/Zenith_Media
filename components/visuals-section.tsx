@@ -51,10 +51,11 @@ export function VisualsSection() {
     <section
       id="visuals"
       className="relative py-24 px-6 bg-fixed bg-center bg-cover bg-no-repeat"
-      style={{ backgroundImage: "url('/BACKGROUND.png')" }}
+      style={{
+        backgroundImage: "url('/BACKGROUND.png')",
+        backgroundSize: "cover",
+      }}
     >
-      <div className="absolute inset-0 bg-black/40"></div>
-
       <div className="relative max-w-7xl mx-auto">
         <h2 className="font-serif text-6xl font-bold text-white mb-12">Visuals</h2>
 
@@ -63,46 +64,3 @@ export function VisualsSection() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-full font-medium transition-all ${
-                activeTab === tab
-                  ? "bg-[#1F3E8A] text-white"
-                  : "bg-gray-100 text-[#0B0F1A] hover:bg-gray-200"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {visuals.map((visual, index) => (
-            <div
-              key={index}
-              className="aspect-square rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-              onClick={() => setSelectedImage(visual)}
-            >
-              <img
-                src={visual || "/placeholder.svg"}
-                alt={`${activeTab} Visual ${index + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Expanded visual"
-            className="max-w-[90%] max-h-[90%] rounded-xl shadow-xl"
-          />
-        </div>
-      )}
-    </section>
-  )
-}
