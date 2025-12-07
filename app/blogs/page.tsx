@@ -1,208 +1,213 @@
 "use client";
 
-import { Navigation } from "@/components/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-// Blog Data
-const BLOGS = [
-  {
-    title: "The Artificial Joy Residing in our Home",
-    author: "Kristel Reyes",
-    date: "30 October 2025",
-    thumbnail: "/BLOG1.jpg",
-    href: "/blogs/artificial-joy",
-    category: "AI",
-  },
-  {
-    title: "Not Posting Everything Anymore.. I guess?",
-    author: "Princess Czyrah Jubilo",
-    date: "30 October 2025",
-    thumbnail: "/princess.png",
-    href: "/blogs/notposting",
-    category: "Personal",
-  },
-  {
-    title: "The Time I Tried (and Failed) to Explain AI Voices to Grandma",
-    author: "Samantha Nicole Borres",
-    date: "30 October 2025",
-    thumbnail: "/samblog.png",
-    href: "/blogs/granmaai",
-    category: "AI",
-  },
-  {
-    title: "As Cliché as It Sounds, Think Before You Click",
-    author: "Dawn Faith Montefalco",
-    date: "06 November 2025",
-    thumbnail: "/dawn.jpg",
-    href: "/blogs/blog4",
-    category: "Media Literacy",
-  },
-  {
-    title: "My Dad Does Not Listen To Me – A Communication Student",
-    author: "Satur Boy Gawec",
-    date: "02 November 2025",
-    thumbnail: "/satur.jpg",
-    href: "/blogs/blog5",
-    category: "Media Literacy",
-  },
-  {
-    title: "Drowning in Headlines: Floods & Falsehoods",
-    author: "Gian Andres",
-    date: "31 October 2025",
-    thumbnail: "/gian.png",
-    href: "/blogs/blog6",
-    category: "Media Literacy",
-  },
-  {
-    title: "NO ORIGINAL THOUGHT",
-    author: "Jeffrey Dones",
-    date: "06 November 2025",
-    thumbnail: "/jeff.png",
-    href: "/blogs/blog7",
-    category: "Personal",
-  },
-  {
-    title: "My For You Page Knows Me Too Well...",
-    author: "Cearelle Joy Anolin",
-    date: "01 November 2025",
-    thumbnail: "/ceablog.png",
-    href: "/blogs/blog8",
-    category: "Media Literacy",
-  },
-  {
-    title: "Marhaba— I Mean, Mabuhay!",
-    author: "Albeira Cruz",
-    date: "02 November 2025",
-    thumbnail: "/albs.png",
-    href: "/blogs/blog9",
-    category: "Personal",
-  },
-  {
-    title: "Why does my feed keep showing me sad content?",
-    author: "Kasheem Siborboro",
-    date: "10 November 2025",
-    thumbnail: "/kash.png",
-    href: "/blogs/blog10",
-    category: "Media Literacy",
-  },
-];
-
-const CATEGORIES = ["All", "AI", "Media Literacy", "Personal"];
 
 export default function BlogsPage() {
   const [scrolled, setScrolled] = useState(false);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(6); // infinite load
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  const [loadingMore, setLoadingMore] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Filtering
-  const filtered = BLOGS.filter((b) => {
-    const matchTitle = b.title.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = category === "All" || b.category === category;
-    return matchTitle && matchCategory;
+  const blogs = [
+    {
+      title: "The Artificial Joy Residing in our Home",
+      author: "Kristel Reyes",
+      date: "October 30, 2025",
+      img: "/BLOG1.jpg",
+      href: "/blogs/artificial-joy",
+      category: "AI",
+    },
+    {
+      title: "Not Posting Everything Anymore.. I guess?",
+      author: "Princess Czyrah Jubilo",
+      date: "October 30, 2025",
+      img: "/princess.png",
+      href: "/blogs/notposting",
+      category: "Personal",
+    },
+    {
+      title: "The Time I Tried (and Failed) to Explain AI Voices to Grandma",
+      author: "Samantha Nicole Borres",
+      date: "October 30, 2025",
+      img: "/samblog.png",
+      href: "/blogs/granmaai",
+      category: "AI",
+    },
+    {
+      title: "As Cliché as It Sounds, Think Before You Click",
+      author: "Dawn Faith Montefalco",
+      date: "November 6, 2025",
+      img: "/dawn.jpg",
+      href: "/blogs/blog4",
+      category: "Media Literacy",
+    },
+    {
+      title: "My Dad Does Not Listen To Me– A Communication Student",
+      author: "Satur Boy Gawec",
+      date: "November 2, 2025",
+      img: "/satur.jpg",
+      href: "/blogs/blog5",
+      category: "Media Literacy",
+    },
+    {
+      title: "Drowning in Headlines: When Floods and Falsehoods Collide",
+      author: "Gian Andres",
+      date: "October 31, 2025",
+      img: "/gian.png",
+      href: "/blogs/blog6",
+      category: "Media Literacy",
+    },
+    {
+      title: "My For You Page Knows Me Too Well",
+      author: "Cearelle Joy Anolin",
+      date: "November 1, 2025",
+      img: "/ceablog.png",
+      href: "/blogs/blog7",
+      category: "Media Literacy",
+    },
+    {
+      title: "Marhaba— I mean, Mabuhay!",
+      author: "Albeira Cruz",
+      date: "November 2, 2025",
+      img: "/albs.png",
+      href: "/blogs/blog9",
+      category: "Personal",
+    },
+    {
+      title: "Why Does My Feed Keep Showing Me Sad Content?",
+      author: "Kasheem Siborboro",
+      date: "November 10, 2025",
+      img: "/kash.png",
+      href: "/blogs/blog10",
+      category: "Media Literacy",
+    },
+    {
+      title: "You Generate",
+      author: "Ina Serquina",
+      date: "October 30, 2025",
+      img: "/ina.jpg",
+      href: "/blogs/blog11",
+      category: "Media Literacy",
+    },
+  ];
+
+  // SEARCH + CATEGORY FILTER
+  const filteredBlogs = blogs.filter((blog) => {
+    const matchesSearch = blog.title.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory = category === "All" || blog.category === category;
+    return matchesSearch && matchesCategory;
   });
 
-  const visibleBlogs = filtered.slice(0, visibleCount);
+  // LOAD MORE (INFINITE SCROLL SIMULATION)
+  const visibleBlogs = filteredBlogs.slice(0, visibleCount);
 
-  // Infinite scroll trigger
-  const loadMore = () => setVisibleCount((prev) => prev + 3);
+  const loadMore = () => {
+    setLoadingMore(true);
+    setTimeout(() => {
+      setVisibleCount((prev) => prev + 6);
+      setLoadingMore(false);
+    }, 600);
+  };
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913]">
+    <main className="min-h-screen bg-[#f6f3ef] pb-20">
 
-      {/* NAVIGATION */}
-      <Navigation scrolled={scrolled} />
+      {/* MAGAZINE HEADER */}
+      <header
+        className={`w-full sticky top-0 z-30 transition-all duration-300 ${
+          scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : "bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-8 py-6 flex flex-col items-center">
+          <h1 className="text-5xl font-serif tracking-wide text-[#7a3a2f]">
+            Zenith Media Journal
+          </h1>
 
-      <div className="px-10 py-24">
-
-        {/* MAGAZINE HEADER */}
-        <h1 className="text-[70px] font-serif font-bold text-[#923232] text-center tracking-tight">
-          ZENITH <span className="text-[#7a1f1f]">MEDIA</span>
-        </h1>
-        <p className="text-center text-[#923232]/70 text-lg -mt-4 mb-12">
-          Stories. Voices. Perspectives.
-        </p>
-
-        {/* SEARCH BAR */}
-        <div className="flex justify-center mb-10">
+          {/* SEARCH */}
           <input
             type="text"
-            placeholder="Search articles..."
+            placeholder="Search blog titles..."
+            className="mt-5 px-5 py-2 w-full max-w-xl rounded-full border border-gray-300 text-sm shadow-sm focus:outline-none"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="
-              w-full max-w-lg px-5 py-3 rounded-full shadow-md border border-[#923232]/40 
-              focus:ring-2 focus:ring-[#923232] outline-none
-            "
           />
-        </div>
 
-        {/* CATEGORY FILTERS */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              className={`
-                px-5 py-2 rounded-full border transition 
-                ${category === cat 
-                  ? "bg-[#923232] text-white" 
-                  : "border-[#923232] text-[#923232] hover:bg-[#923232]/10"}
-              `}
-            >
-              {cat}
-            </button>
-          ))}
+          {/* FILTER BUTTONS */}
+          <div className="flex gap-4 mt-4">
+            {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategory(cat)}
+                className={`px-4 py-1 rounded-full text-sm transition ${
+                  category === cat
+                    ? "bg-[#7a3a2f] text-white"
+                    : "bg-white border shadow-sm"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
+      </header>
 
-        {/* BLOG GRID */}
+      {/* BLOG GRID */}
+      <section className="max-w-7xl mx-auto px-10 mt-14">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
-          {visibleBlogs.map((blog, i) => (
+
+          {visibleBlogs.map((blog, index) => (
             <Link
-              key={i}
+              key={index}
               href={blog.href}
-              className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-xl 
-                hover:scale-[1.02] transition-all duration-300 hover:shadow-2xl"
+              className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition shadow duration-300 hover:-translate-y-1"
             >
-              <img
-                src={blog.thumbnail}
-                className="w-full h-56 object-cover"
-              />
+              <img src={blog.img} className="w-full h-auto object-cover" />
 
               <div className="p-5">
                 <h2 className="text-lg font-semibold text-[#6A4B3C]">
                   {blog.title}
                 </h2>
-
-                <p className="text-xs text-[#6A4B3C]/70 mt-2">
-                  By {blog.author} <br />
-                  {blog.date}
+                <p className="text-xs text-gray-500 mt-1">
+                  {blog.author} • {blog.date}
                 </p>
+                <span className="text-[11px] mt-2 inline-block px-2 py-1 bg-[#7a3a2f]/10 text-[#7a3a2f] rounded-full">
+                  {blog.category}
+                </span>
               </div>
             </Link>
           ))}
+
+          {/* SKELETON LOADER when loading more */}
+          {loadingMore &&
+            [...Array(3)].map((_, i) => (
+              <div
+                key={i}
+                className="w-full h-56 bg-gray-200 animate-pulse rounded-xl"
+              ></div>
+            ))}
         </div>
 
         {/* LOAD MORE BUTTON */}
-        {visibleCount < filtered.length && (
-          <div className="flex justify-center mt-12">
+        {visibleCount < filteredBlogs.length && (
+          <div className="flex justify-center mt-10">
             <button
               onClick={loadMore}
-              className="px-6 py-3 bg-[#923232] text-white rounded-full shadow-lg hover:bg-[#7a1f1f] transition"
+              className="px-6 py-2 bg-[#7a3a2f] text-white rounded-full shadow-md hover:scale-105 transition"
             >
               Load More
             </button>
           </div>
         )}
-
-      </div>
+      </section>
     </main>
   );
 }
