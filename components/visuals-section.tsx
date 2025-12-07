@@ -13,9 +13,12 @@ const visualsData: Record<string, string[]> = {
     "/Infographics_5.png",
   ],
   Posters: [
-    "/creative-poster-design-media.jpg",
-    "/brand-identity-elements.png",
-    "/digital-marketing-collage.png",
+    "/Poster_1.png",
+    "/Poster_2.png",
+    "/Poster_3.png",
+    "/Poster_4.png",
+    "/Poster_5.png",
+    "/Poster_6.png",
   ],
   "Data Tools": [
     "/data-visualization-dashboard.png",
