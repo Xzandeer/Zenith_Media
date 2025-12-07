@@ -10,7 +10,7 @@ export default function BlogsPage() {
   const [category, setCategory] = useState("All");
   const [visibleCount, setVisibleCount] = useState(6);
 
-  // BLOG DATABASE
+  /* ---------------------- BLOG DATA ---------------------- */
   const blogs = [
     {
       title: "The Artificial Joy Residing in our Home",
@@ -62,111 +62,118 @@ export default function BlogsPage() {
     },
   ];
 
-  // FILTER LOGIC
+  /* ---------------------- FILTER + SEARCH ---------------------- */
   const filteredBlogs = blogs.filter((b) => {
-    const matchSearch = b.title.toLowerCase().includes(search.toLowerCase());
+    const matchTitle = b.title.toLowerCase().includes(search.toLowerCase());
     const matchCategory = category === "All" || b.category === category;
-    return matchSearch && matchCategory;
+    return matchTitle && matchCategory;
   });
 
-  // Infinite scroll handler
-  const loadMore = () => {
-    setVisibleCount((prev) => prev + 3);
-  };
+  /* ---------------------- LOAD MORE ---------------------- */
+  const loadMore = () => setVisibleCount((prev) => prev + 3);
 
-  // Page scroll listener + loading skeleton
+  /* ---------------------- INITIAL EFFECTS ---------------------- */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
 
     const timer = setTimeout(() => setLoading(false), 1200);
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", handleScroll);
       clearTimeout(timer);
     };
   }, []);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#d64535] via-[#f7af90] to-[#af4913] pb-32">
+
+      {/* NAVIGATION */}
       <Navigation scrolled={scrolled} />
 
-      <div className="px-10 pt-40">
+      {/* THIN NAVBAR DIVIDER */}
+      <div className="border-b border-white/40 backdrop-blur-xl"></div>
 
-        {/* PAGE TITLE */}
-        <h1 className="text-6xl font-bold font-serif text-[#923232] text-center">
-          BLOGS
+      {/* HERO BANNER */}
+      <section className="text-center mt-20 mb-16 px-4">
+        <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-md">
+          ZENITH MEDIA BLOGS
         </h1>
+        <p className="text-white/90 text-lg mt-3 max-w-2xl mx-auto leading-relaxed">
+          A collection of narratives, reflections, and digital-age storytelling.
+        </p>
+      </section>
 
-        {/* 🔍 SEARCH BAR */}
-        <div className="flex justify-center mt-10 mb-10">
-          <input
-            type="text"
-            placeholder="Search articles..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full max-w-xl px-6 py-3 rounded-full shadow-md border border-gray-300 focus:outline-none focus:border-[#923232] text-gray-700 text-lg"
-          />
-        </div>
-
-        {/* 🏷 CATEGORY FILTERS */}
-        <div className="flex justify-center gap-4 mb-16 flex-wrap">
-          {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setCategory(cat)}
-              className={`px-5 py-2 rounded-full border text-sm transition 
-                ${
-                  category === cat
-                    ? "bg-[#923232] text-white border-[#923232]"
-                    : "bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* 🖼 PINTEREST MASONRY GRID */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
-
-          {/* Skeleton Loader */}
-          {loading &&
-            [...Array(6)].map((_, i) => <SkeletonCard key={i} />)}
-
-          {/* Blog Cards */}
-          {!loading &&
-            filteredBlogs.slice(0, visibleCount).map((blog, i) => (
-              <a
-                key={i}
-                href={blog.link}
-                className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition duration-300 hover:-translate-y-1 tilt"
-              >
-                <LazyImage src={blog.image} alt={blog.title} />
-                <div className="p-4">
-                  <h2 className="text-lg font-semibold text-[#6A4B3C]">{blog.title}</h2>
-                  <p className="text-xs text-[#6A4B3C]/70 mt-2">
-                    By {blog.author} <br /> {blog.date}
-                  </p>
-                </div>
-              </a>
-            ))}
-
-        </div>
-
-        {/* INFINITE SCROLL BUTTON */}
-        {!loading && visibleCount < filteredBlogs.length && (
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={loadMore}
-              className="px-8 py-3 bg-white rounded-full shadow-md border hover:bg-gray-100 transition"
-            >
-              Load More
-            </button>
-          </div>
-        )}
+      {/* SEARCH BAR */}
+      <div className="flex justify-center mt-5 mb-12">
+        <input
+          type="text"
+          placeholder="Search articles..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full max-w-xl px-6 py-3 rounded-full shadow-md border border-gray-300 
+            focus:outline-none focus:border-[#923232] text-gray-700 text-lg"
+        />
       </div>
 
-      {/* SHIMMER + TILT + LAZY LOAD CSS */}
+      {/* CATEGORY FILTERS */}
+      <div className="flex justify-center gap-3 mb-16 flex-wrap">
+        {["All", "AI", "Media Literacy", "Personal"].map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setCategory(cat)}
+            className={`px-5 py-2 rounded-full border text-sm transition 
+              ${
+                category === cat
+                  ? "bg-[#923232] text-white border-[#923232]"
+                  : "bg-white border-gray-300 text-gray-700 hover:bg-gray-100"
+              }
+            `}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* PINTEREST GRID */}
+      <div className="px-10 columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+
+        {loading &&
+          [...Array(6)].map((_, i) => <SkeletonCard key={i} />)}
+
+        {!loading &&
+          filteredBlogs.slice(0, visibleCount).map((b, i) => (
+            <a
+              key={i}
+              href={b.link}
+              className="block break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md 
+                hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 tilt"
+            >
+              <LazyImage src={b.image} alt={b.title} />
+              <div className="p-4">
+                <h2 className="text-lg font-semibold text-[#6A4B3C]">{b.title}</h2>
+                <p className="text-xs text-[#6A4B3C]/70 mt-2">
+                  By {b.author} <br /> {b.date}
+                </p>
+              </div>
+            </a>
+          ))}
+
+      </div>
+
+      {/* LOAD MORE BUTTON */}
+      {!loading && visibleCount < filteredBlogs.length && (
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={loadMore}
+            className="px-8 py-3 bg-white rounded-full shadow-md border hover:bg-gray-100 transition"
+          >
+            Load More
+          </button>
+        </div>
+      )}
+
+      {/* STYLES */}
       <style jsx>{`
         .skeleton {
           background: linear-gradient(
@@ -190,7 +197,7 @@ export default function BlogsPage() {
   );
 }
 
-/* 🖼 LAZY IMAGE COMPONENT */
+/* ---------------------- LAZY LOADED IMAGE ---------------------- */
 function LazyImage({ src, alt }) {
   const imgRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
@@ -207,7 +214,7 @@ function LazyImage({ src, alt }) {
   );
 }
 
-/* ⏳ SKELETON CARD */
+/* ---------------------- SKELETON CARD ---------------------- */
 function SkeletonCard() {
   return (
     <div className="break-inside-avoid rounded-xl overflow-hidden bg-white shadow-md">
