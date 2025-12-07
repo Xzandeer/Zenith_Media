@@ -46,6 +46,21 @@ export default function BlogsPage() {
             </div>
           </a>
 
+          {/* ---- NEW BLOG: NOT POSTING ---- */}
+          <a
+            href="/blogs/notposting"
+            className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
+          >
+            <img src="/NOTPOSTING.jpg" className="w-full h-56 object-cover" />
+            <div className="bg-[#C38A5B] p-5 text-white">
+              <h2 className="text-lg font-semibold">Not Posting</h2>
+              <p className="text-xs mt-2">
+                By Author <br />
+                {new Date().toLocaleDateString()}
+              </p>
+            </div>
+          </a>
+
           {/* ---- BLOG 2 Placeholder ---- */}
           <div className="rounded-xl overflow-hidden shadow-lg bg-white">
             <div className="w-full h-56 bg-gray-300"></div>
