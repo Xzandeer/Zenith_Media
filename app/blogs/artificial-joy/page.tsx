@@ -1,28 +1,30 @@
 export default function ArtificialJoy() {
   return (
-    <main className="min-h-screen bg-[#caa987] py-20 px-4">
+    <main className="min-h-screen bg-[#f7f4ef] py-16 px-4">
       {/* Document Container */}
-      <article className="max-w-4xl mx-auto bg- shadow-xl rounded-2xl p-10 md:p-14 leading-relaxed">
+      <article className="max-w-3xl mx-auto bg-white shadow-md rounded-2xl p-8 md:p-12 leading-relaxed border border-gray-200">
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#c04122] mb-3">
+        <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#b23b23] mb-2">
           The Artificial Joy Residing in our Home
         </h1>
 
         {/* Author */}
-        <p className="text-gray-600 mb-8 text-sm">
-          <span className="font-semibold">By Kristel Reyes</span> — Oct 30, 2025
+        <p className="text-gray-500 mb-8 text-sm">
+          <span className="font-medium">By Kristel Reyes</span> — Oct 30, 2025
         </p>
 
         {/* Thumbnail */}
-        <img
-          src="/BLOG1.jpg"
-          alt="Blog Thumbnail"
-          className="rounded-xl shadow-md mb-12 w-full object-cover"
-        />
+        <div className="w-full h-64 md:h-80 overflow-hidden rounded-xl mb-10">
+          <img
+            src="/BLOG1.jpg"
+            alt="Blog Thumbnail"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
         {/* Article Body */}
-        <div className="prose prose-lg max-w-none text-[#333]">
+        <div className="prose prose-neutral prose-lg max-w-none">
           <p>
             Would you ask someone to get out of the pool while they’re having so much fun,
             even if they just jumped in a few minutes ago?
@@ -41,9 +43,7 @@ export default function ArtificialJoy() {
           <p>
             However, it’s getting out of hand—they use such scarily altered images as their
             display photos and brag about them in their profiles with a
-            <b> #feelingblessed </b> caption.
-            <br />
-            But blessed who, exactly?
+            <b> #feelingblessed </b> caption. But blessed who, exactly?
           </p>
 
           <h3 className="text-2xl font-semibold mt-10 mb-3">
@@ -57,60 +57,56 @@ export default function ArtificialJoy() {
           </p>
 
           <p>
-            According to Howarth (2025), AI usage increased by 84.58% during the previous
-            12 months—ChatGPT alone accumulated 5.4 billion visits every month as of August
-            this year. In a more localized context, Google’s Gemini has also made a noise
-            in the Philippines due to its newly introduced image generation feature.
+            According to Howarth (2025), AI usage increased by 84.58% in the last 12 months—
+            ChatGPT alone accumulated 5.4 billion visits every month as of August this year.
+            Locally, Google’s Gemini also made noise in the Philippines due to its newly
+            introduced image generation feature.
           </p>
 
           <p>
             Reyes (2025) reported that Filipinos are the top users of generative AI,
-            generating 25.5 million images in just a few days. It’s wild how trends work
-            in the Philippines, especially AI prompts and creations, as Filipinos tend to
-            be always online—quickly jumping from one trend to another.
+            producing 25.5 million images in just a few days. It’s wild how trends move fast
+            here—Filipinos are always online, always shifting from one trend to another.
           </p>
 
           <p>
-            However, it’s also alarming to know that, as easy as it is to upload a photo
-            to an AI server out of curiosity driven by a trend, anyone can also be a victim.
-            That is why having family members who actively engage in such image generation
-            worries me.
+            However, it’s alarming to know that as easy as it is to upload a photo to an AI
+            server, anyone can also be a victim. That’s why having family members who
+            actively engage in such image generation worries me.
           </p>
 
           <p>
-            Not only do these AI services contribute to environmental degradation due to
-            their excessive use of water in cooling their servers, but also because my
-            family’s physical identities may be exploited for malicious purposes.
+            These AI tools don’t just contribute to environmental strain due to massive water
+            consumption for cooling—they also risk exposing my family’s physical identities
+            to potential misuse.
           </p>
 
-          <p>
-            Who wouldn’t want that for our loved ones, right?
-          </p>
+          <p>Who would want that for the people they love?</p>
 
           <p>
-            So, I started small. I tried warning my sister about the environmental
-            consequences of continued AI use. <i>Well, I failed.</i>  
-            She laughed off the thought.
+            So, I tried starting small. I warned my sister about AI’s environmental impact.
+            <i>Well, it didn’t work.</i> She laughed it off.
           </p>
 
           <p className="font-semibold">
-            However, this kind of conversation should not end with a shrug or a joke—there
-            must be layers of discussion and a commendable change in behavior.
+            But conversations like this shouldn’t end with a shrug—these deserve deeper
+            reflection and meaningful change.
           </p>
 
           <p>
-            Let’s approach people, starting with our family and neighbors, and extending to
-            the online communities we often interact with. Let’s continue to speak up and
-            have our voice heard by our elected leaders so they can take action.
+            Let’s start with the people closest to us—family, neighbors, and the online
+            communities we interact with. Let’s speak up and encourage our leaders to take
+            action as well.
           </p>
 
           <p>
-            Let’s start the conversation and end it with purpose and compassion.
+            Let’s begin the conversation, and more importantly, end it with compassion and
+            purpose.
           </p>
 
           <p>
-            In doing so, we wouldn’t need to pull people out from the pool and end their joy;
-            we would only have to teach them how to swim and survive against its dangers.
+            That way, we don’t need to drag people out of the pool—we just need to teach
+            them how to swim.
           </p>
 
           <h4 className="mt-10 font-semibold">References:</h4>
