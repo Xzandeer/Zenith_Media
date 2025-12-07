@@ -50,7 +50,7 @@ export function VisualsSection() {
   return (
     <section
       id="visuals"
-      className="py-24 px-6 bg-white bg-cover bg-center bg-no-repeat"
+      className="py-24 px-6 bg-white bg-cover bg-center bg-fixed"
       style={{ backgroundImage: "url('/BACKGROUND.png')" }}
     >
       <div className="max-w-7xl mx-auto">
