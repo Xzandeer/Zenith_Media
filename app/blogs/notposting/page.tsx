@@ -37,7 +37,7 @@ export default function NotPosting() {
         {/* Header Image */}
         <div className="w-full h-[380px] md:h-[460px] mb-12 overflow-hidden rounded-lg animate-fadeInSlow">
           <img
-            src="/NOTPOSTING.jpg"
+            src="/princess.png"
             alt="Not Posting Thumbnail"
             className="w-full h-full object-cover"
           />
