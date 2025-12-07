@@ -122,32 +122,44 @@ export default function GrandmaAI() {
           </button>
         </div>
 
-        {/* More Stories Section */}
-        <div className="mt-24 animate-fadeInSlow">
-          <h2 className="text-xl font-semibold mb-6">More stories from Zenith Media</h2>
+       {/* More Stories Section */}
+<div className="mt-24 animate-fadeInSlow">
+  <h2 className="text-xl font-semibold mb-6">More stories from Zenith Media</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            {/* Story Card 1 */}
-            <Link href="/blogs/notposting" className="group">
-              <div className="w-full h-40 bg-gray-200 rounded-lg mb-3"></div>
-              <h3 className="font-semibold group-hover:underline">
-                Not Posting Everything Anymore… I Guess?
-              </h3>
-              <p className="text-sm text-gray-500">Princess Czyrah Jubilo</p>
-            </Link>
+    {/* Story 1 — Not Posting */}
+    <Link href="/blogs/notposting" className="group">
+      <div className="w-full h-40 overflow-hidden rounded-lg mb-3">
+        <img
+          src="/princess.png"
+          alt="Not Posting Thumbnail"
+          className="w-full h-full object-cover group-hover:opacity-90 transition"
+        />
+      </div>
+      <h3 className="font-semibold group-hover:underline">
+        Not Posting Everything Anymore… I Guess?
+      </h3>
+      <p className="text-sm text-gray-500">Princess Czyrah Jubilo</p>
+    </Link>
 
-            {/* Story Card 2 */}
-            <Link href="/blogs/artificial-joy" className="group">
-              <div className="w-full h-40 bg-gray-200 rounded-lg mb-3"></div>
-              <h3 className="font-semibold group-hover:underline">
-                The Artificial Joy Residing in our Home
-              </h3>
-              <p className="text-sm text-gray-500">Kristel Reyes</p>
-            </Link>
+    {/* Story 2 — GrandmaAI */}
+    <Link href="/blogs/granmaai" className="group">
+      <div className="w-full h-40 overflow-hidden rounded-lg mb-3">
+        <img
+          src="/samblog.png"
+          alt="Grandma AI Thumbnail"
+          className="w-full h-full object-cover group-hover:opacity-90 transition"
+        />
+      </div>
+      <h3 className="font-semibold group-hover:underline">
+        The Time I Tried (and Failed) to Explain AI Voices to Grandma
+      </h3>
+      <p className="text-sm text-gray-500">Samantha Nicole Borres</p>
+    </Link>
 
-          </div>
-        </div>
+  </div>
+</div>
 
       </article>
 
@@ -168,4 +180,5 @@ export default function GrandmaAI() {
     </main>
   );
 }
+
 
