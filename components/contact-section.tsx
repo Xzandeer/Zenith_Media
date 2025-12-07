@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,7 +27,6 @@ export function ContactSection() {
         <h2 className="font-serif text-6xl font-bold text-[#1F3E8A] mb-16 text-center">Connect with us.</h2>
 
         <div className="grid md:grid-cols-2 gap-16">
-          {/* Left: Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="font-serif text-3xl font-bold text-[#1F3E8A] mb-4">Get in Touch</h3>
@@ -36,6 +34,7 @@ export function ContactSection() {
                 Have a project in mind? Want to collaborate? We'd love to hear from you. Reach out through any of our
                 social channels or send us a message.
               </p>
+              <p className="text-[#0B0F1A] font-medium">Saint Louis University, Baguio City</p>
             </div>
 
             <div className="space-y-4">
@@ -69,7 +68,6 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Input
@@ -109,7 +107,6 @@ export function ContactSection() {
           </form>
         </div>
 
-        {/* Footer */}
         <div className="mt-24 pt-8 border-t border-gray-200 text-center">
           <p className="text-[#0B0F1A]">© 2025 Zenith Media — All rights reserved.</p>
         </div>
