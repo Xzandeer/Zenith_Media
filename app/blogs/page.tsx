@@ -84,7 +84,7 @@ export default function BlogsPage() {
             href="/blogs/blog4"
             className="rounded-xl overflow-hidden shadow-lg bg-white hover:scale-[1.02] transition-all duration-300"
           >
-            <img src="/dawn.png" className="w-full h-56 object-cover" />
+            <img src="/dawn.jpg" className="w-full h-56 object-cover" />
             <div className="bg-[#C25A5A] p-5 text-white">
               <h2 className="text-lg font-semibold">
                 As Cliché as It Sounds, Think Before You Click
