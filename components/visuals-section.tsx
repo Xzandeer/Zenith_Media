@@ -18,9 +18,9 @@ const visualsData: Record<string, string[]> = {
     "/Poster_3.png",
   ],
   "Data Tools": [
-    "/data-visualization-dashboard.png",
-    "/modern-infographic-design-blue-red.jpg",
-    "/social-media-graphics-template.jpg",
+    "/DVT_1.png",
+    "/DVT_2.png",
+    "/DVT_3.png",
   ],
   "Art Cards": [
     "/visual2.png",
@@ -53,7 +53,6 @@ export function VisualsSection() {
       className="relative py-24 px-6 bg-fixed bg-center bg-cover bg-no-repeat"
       style={{ backgroundImage: "url('/BACKGROUND.png')" }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="relative max-w-7xl mx-auto">
