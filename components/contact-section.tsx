@@ -24,51 +24,83 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-6xl font-bold text-[#1F3E8A] mb-16 text-center">Connect with us.</h2>
+        <h2 className="font-serif text-6xl font-bold text-[#1F3E8A] mb-16 text-center">
+          Connect with us.
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-16">
+          {/* LEFT SIDE CONTACT INFO */}
           <div className="space-y-8">
             <div>
               <h3 className="font-serif text-3xl font-bold text-[#1F3E8A] mb-4">Get in Touch</h3>
               <p className="text-[#0B0F1A] leading-relaxed mb-6">
-                Have a project in mind? Want to collaborate? We'd love to hear from you. Reach out through any of our
-                social channels or send us a message.
+                Have a project in mind? Want to collaborate? We'd love to hear from you.
+                Reach out through any of our social channels or send us a message.
               </p>
               <p className="text-[#0B0F1A] font-medium">Saint Louis University, Baguio City</p>
             </div>
 
+            {/* SOCIAL ICONS */}
             <div className="space-y-4">
               <h4 className="font-medium text-[#0B0F1A] mb-4">Follow Us</h4>
+
               <div className="flex gap-4">
+
+                {/* FACEBOOK */}
                 <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-[#1F3E8A] flex items-center justify-center hover:bg-[#1F3E8A]/90 transition-colors"
+                  href="https://www.facebook.com/share/19en1MXX7n/?mibextid=wwXIfr"
+                  target="_blank"
+                  className="w-12 h-12 rounded-full bg-[#1F3E8A] flex items-center justify-center 
+                  hover:bg-[#1F3E8A]/90 transition-colors"
                 >
                   <Facebook className="w-6 h-6 text-white" />
                 </a>
+
+                {/* INSTAGRAM */}
                 <a
-                  href="www.facebook.com/share/19en1MXX7n/?mibextid=wwXIfr"
-"
-                  className="w-12 h-12 rounded-full bg-[#B5452E] flex items-center justify-center hover:bg-[#B5452E]/90 transition-colors"
+                  href="https://www.instagram.com/zenithmedia.ph?igsh=M3Z4NXp1ejlrd3ps"
+                  target="_blank"
+                  className="w-12 h-12 rounded-full bg-[#B5452E] flex items-center justify-center 
+                  hover:bg-[#B5452E]/90 transition-colors"
                 >
                   <Instagram className="w-6 h-6 text-white" />
                 </a>
+
+                {/* YOUTUBE */}
                 <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-[#1F3E8A] flex items-center justify-center hover:bg-[#1F3E8A]/90 transition-colors"
+                  href="https://youtube.com/@zenithmediaorg?si=pN8uuh5fikNL3yHe"
+                  target="_blank"
+                  className="w-12 h-12 rounded-full bg-[#1F3E8A] flex items-center justify-center 
+                  hover:bg-[#1F3E8A]/90 transition-colors"
                 >
                   <Youtube className="w-6 h-6 text-white" />
                 </a>
+
+                {/* EMAIL */}
                 <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-[#B5452E] flex items-center justify-center hover:bg-[#B5452E]/90 transition-colors"
+                  href="mailto:zenithmedia@gmail.com"
+                  className="w-12 h-12 rounded-full bg-[#B5452E] flex items-center justify-center 
+                  hover:bg-[#B5452E]/90 transition-colors"
                 >
                   <Mail className="w-6 h-6 text-white" />
                 </a>
+
+                {/* TIKTOK – custom circle since Lucide doesn't include TikTok */}
+                <a
+                  href="https://www.tiktok.com/@zenithmedia.ph?_r=1&_t=ZS-921NxvYtoiT"
+                  target="_blank"
+                  className="w-12 h-12 rounded-full bg-black flex items-center justify-center 
+                  hover:bg-black/85 transition-colors font-bold text-white text-xl"
+                  style={{ fontFamily: "sans-serif" }}
+                >
+                  Ⓣ
+                </a>
+
               </div>
             </div>
           </div>
 
+          {/* RIGHT SIDE CONTACT FORM */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <Input
@@ -79,6 +111,7 @@ export function ContactSection() {
                 className="rounded-2xl border-2 border-gray-200 px-6 py-6 text-lg"
               />
             </div>
+
             <div>
               <Input
                 type="email"
@@ -89,6 +122,7 @@ export function ContactSection() {
                 className="rounded-2xl border-2 border-gray-200 px-6 py-6 text-lg"
               />
             </div>
+
             <div>
               <Textarea
                 placeholder="Your Message"
@@ -99,6 +133,7 @@ export function ContactSection() {
                 className="rounded-2xl border-2 border-gray-200 px-6 py-4 text-lg resize-none"
               />
             </div>
+
             <Button
               type="submit"
               className="w-full bg-[#1F3E8A] hover:bg-[#1F3E8A]/90 text-white rounded-full py-6 text-lg"
@@ -108,6 +143,7 @@ export function ContactSection() {
           </form>
         </div>
 
+        {/* FOOTER */}
         <div className="mt-24 pt-8 border-t border-gray-200 text-center">
           <p className="text-[#0B0F1A]">© 2025 Zenith Media — All rights reserved.</p>
         </div>
