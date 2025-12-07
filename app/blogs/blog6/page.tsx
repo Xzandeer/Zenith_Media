@@ -201,7 +201,7 @@ export default function GianHeadlineBlog() {
 
             <Link href="/blogs/blog4" className="group">
               <div className="w-full h-40 rounded-lg overflow-hidden mb-3">
-                <img src="/dawn.png" className="w-full h-full object-cover group-hover:opacity-90 transition" />
+                <img src="/dawn.jpg" className="w-full h-full object-cover group-hover:opacity-90 transition" />
               </div>
               <h3 className="font-semibold group-hover:underline">
                 As Cliché as It Sounds, Think Before You Click
@@ -241,3 +241,4 @@ export default function GianHeadlineBlog() {
     </main>
   );
 }
+
