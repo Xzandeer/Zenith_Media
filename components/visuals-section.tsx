@@ -52,7 +52,7 @@ export function VisualsSection() {
     <section
       id="visuals"
       className="py-24 px-6 bg-white bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: 'url("/BACKGROUND.PNG")' }}
+      style={{ backgroundImage: "url('/BACKGROUND.png')" }}
     >
       <div className="max-w-7xl mx-auto">
         <h2 className="font-serif text-6xl font-bold text-[#1F3E8A] mb-12">Visuals</h2>
