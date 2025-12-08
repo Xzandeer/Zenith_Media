@@ -1,15 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 const ZinePage = () => {
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
+
+  // Client-side check to prevent issues with Next.js SSR
+  useEffect(() => {
+    setIsClient(true); // This will ensure code only runs on the client
+  }, []);
 
   // Function to handle the return button click
   const handleReturn = () => {
     router.push("/services"); // Redirects to services page or wherever you want the return button to link
   };
+
+  if (!isClient) {
+    // Return a loading screen or fallback UI until the page is mounted on the client
+    return <div>Loading...</div>;
+  }
 
   return (
     <section
