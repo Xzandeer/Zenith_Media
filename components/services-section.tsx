@@ -4,22 +4,28 @@ import { useState, useEffect } from "react";
 
 const items = [
   {
-    title: "Informative Content",
+    title: "ZINE: Zenith & Out",
     description:
-      "Educational, well-researched, and accessible media content crafted for students and educators.",
+      "A digital magazine bringing insightful stories, trends, and content that aims to elevate media literacy and quality education.",
+    image: "/zine.png",
+  },
+  {
+    title: "GAMES",
+    description:
+      "Engage with interactive games that test your knowledge and skills in various areas such as media literacy and personality traits.",
+    image: "/Games.png",
+  },
+  {
+    title: "Article: Zenith Media Showcases Quality Learning at MIL Summit 2025",
+    description:
+      "An in-depth look at Zenith Media’s contribution to the Media and Information Literacy (MIL) Summit 2025, highlighting key topics and insights.",
+    image: "/article.png",
+  },
+  {
+    title: "Coming Soon (MOOC and Live Webinar Session)",
+    description:
+      "Stay tuned for upcoming online courses (MOOCs) and live webinars designed to offer flexible, high-quality learning experiences.",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-  },
-  {
-    title: "Podcast Production",
-    description:
-      "Professional podcast creation with high-quality audio, editing, and storytelling.",
-    image: "https://images.pexels.com/photos/7651392/pexels-photo-7651392.jpeg",
-  },
-  {
-    title: "Educational Videos",
-    description:
-      "Engaging and interactive video content designed to support modern learning.",
-    image: "https://images.pexels.com/photos/4145355/pexels-photo-4145355.jpeg",
   },
 ];
 
