@@ -36,7 +36,7 @@ export default function ArticlePage() {
         {/* Header Image */}
         <div className="w-full h-[380px] md:h-[460px] mb-12 overflow-hidden rounded-lg animate-fadeInSlow">
           <img
-            src="/MIL_Summit.jpg"  // Update this image path as needed
+            src="/article.png"  // Update this image path as needed
             alt="MIL Summit"
             className="w-full h-full object-cover"
           />
