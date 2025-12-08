@@ -1,19 +1,16 @@
 "use client";
 
-
 export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
   return (
     <section
- className="w-full h-screen flex items-center justify-center relative overflow-hidden"
+      className="w-full h-screen flex items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage: "url('/BACKGROUND.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-  
-  }}
->
-
+      }}
+    >
       {/* CENTER CONTENT */}
       <div
         className="relative"
@@ -35,8 +32,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
             marginLeft: "70px",
           }}
         >
-          <div style={{ position: "relative", width: "900px", height: "280px" }}>
-
+          <div style={{ position: "relative", width: "900px", height: "450px" }}>
             {/* WHAT’S */}
             <div
               style={{
@@ -87,13 +83,30 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
             >
               for you?
             </div>
+
+            {/* Slogan */}
+            <div
+              style={{
+                position: "absolute",
+                top: "325px", // Positioned below "for you?"
+                left: "-20px",
+                fontFamily: "Playfair Display, serif",
+                fontSize: "40px",
+                fontWeight: 500,
+                color: "#1F3E8A",
+                zIndex: 4,
+                transform: "skew(-5deg)",
+              }}
+            >
+              Delivering quality learning to the highest point!
+            </div>
           </div>
 
           {/* CONNECT BUTTON */}
           <button
             onClick={onScrollDown}
             style={{
-              marginTop: "40px",
+              marginTop: "10px", // Adjusted to give more space below the slogan
               width: "240px",
               height: "55px",
               backgroundColor: "#B5452E",
@@ -111,13 +124,13 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
         {/* RIGHT — NOW USING YOUR REAL ASSETS */}
         <div
           style={{
-     width: "580px",
-     height: "700px",
-     display: "grid",
-     gridTemplateColumns: "1.4fr 1fr",  // ⬅️ wider tall video
-     gridTemplateRows: "repeat(3, 1fr)",
-     gap: "30px",
-     marginTop: "40px",
+            width: "580px",
+            height: "700px",
+            display: "grid",
+            gridTemplateColumns: "1.4fr 1fr", // ⬅️ wider tall video
+            gridTemplateRows: "repeat(3, 1fr)",
+            gap: "30px",
+            marginTop: "40px",
           }}
         >
           {/* TALL VIDEO (VERTICAL_VIDEO.mp4) */}
@@ -200,7 +213,6 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
       >
         <span className="text-3xl leading-none">↓</span>
       </button>
-
     </section>
   );
 }

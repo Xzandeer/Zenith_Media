@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogsPage() {
   const [scrolled, setScrolled] = useState(false);
@@ -90,13 +91,21 @@ export default function BlogsPage() {
       category: "Media Literacy",
     },
     {
-      title: "You Generate",
+      title: "Growing Up Behind: The Digital World vs Traditional Filipino Family",
       author: "Ina Serquina",
       date: "October 30, 2025",
-      img: "/ina.jpg",
+      img: "/ina.png",
       href: "/blogs/blog11",
       category: "Media Literacy",
     },
+    {
+      title: "No Original Thought",
+      author: "Jeffrey Dones",
+      date: "November 6, 2025",
+      img: "/jeff.png",
+      href: "/blogs/no-original-thought", // Adjust the link
+      category: "Personal",
+    }
   ];
 
   const filteredBlogs = blogs.filter((blog) => {
@@ -117,9 +126,36 @@ export default function BlogsPage() {
 
   return (
     <main className="min-h-screen bg-[#f6f3ef] pb-20">
+
+      {/* 🔥 TOP NAVIGATION BAR */}
+      <nav
+        className={`
+          fixed top-0 w-full z-50 px-8 py-4 flex items-center justify-between transition-all
+          ${scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : "bg-transparent"}
+        `}
+      >
+        <Link href="/">
+          <Image
+            src="/Logo Mark.png"
+            alt="Logo"
+            width={50}
+            height={50}
+            className="cursor-pointer"
+          />
+        </Link>
+
+        <div className="hidden sm:flex gap-6 font-medium text-[#6A4B3C]">
+          <Link href="/">Home</Link>
+          <Link href="/blogs">Blogs</Link>
+          <Link href="/visuals">Visuals</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+      </nav>
+
+      {/* MAIN HEADER */}
       <header
-        className={`w-full sticky top-0 z-30 transition-all duration-300 ${
-          scrolled ? "backdrop-blur-md bg-white/70 shadow-sm" : ""
+        className={`w-full mt-28 transition-all duration-300 ${
+          scrolled ? "pt-4" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 py-6 flex flex-col items-center">
@@ -153,6 +189,7 @@ export default function BlogsPage() {
         </div>
       </header>
 
+      {/* BLOG GRID */}
       <section className="max-w-7xl mx-auto px-10 mt-14">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
           {visibleBlogs.map((blog, index) => (
@@ -191,6 +228,7 @@ export default function BlogsPage() {
           </div>
         )}
       </section>
+
     </main>
   );
 }

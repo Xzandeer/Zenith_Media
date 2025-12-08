@@ -50,7 +50,7 @@ export default function WelcomeScreen({ userName }: WelcomeScreenProps) {
             fadeOut ? "opacity-0" : "opacity-100"
           }`}
         >
-          Welcome, {userName}!
+          Welcome!
         </p>
       </div>
     </div>
