@@ -187,34 +187,20 @@ const ArchetypeGame = () => {
   };
 
   const imagePaths: { [key: string]: string } = {
-    "The Activist": "/activist.png",
-    "The Creator": "/creator.png",
-    "The Early Adopter / Trend Chaser": "/earlyadopter.png",
-    "The Family Person": "/family.png",
-    "The Listener": "/listener.png",
-    "The Passionista": "/passionista.png",
-    "The Social Butterfly": "/socialbutterfly.png",
-    "The Spammer / Promoter": "/spammer.png",
-    "The Troll / Provocateur": "/troll.png",
-    "The Black Booker (Relationship-Builder)": "/black.png",
+    "The Activist": "/images/activist.png",
+    "The Creator": "/images/creator.png",
+    "The Early Adopter / Trend Chaser": "/images/earlyadopter.png",
+    "The Family Person": "/images/family.png",
+    "The Listener": "/images/listener.png",
+    "The Passionista": "/images/passionista.png",
+    "The Social Butterfly": "/images/socialbutterfly.png",
+    "The Spammer / Promoter": "/images/spammer.png",
+    "The Troll / Provocateur": "/images/troll.png",
+    "The Black Booker (Relationship-Builder)": "/images/black.png",
   };
 
   return (
     <div className="p-6">
-      {/* Thumbnails Section */}
-      <div className="text-center mb-6">
-        <img
-          src="/quiz.png"  // This is the "Quiz" thumbnail
-          alt="Quiz Thumbnail"
-          className="w-48 mx-auto mb-4"
-        />
-        <img
-          src="/Games.jpeg"  // This is the "Archetypes" thumbnail
-          alt="Archetypes Thumbnail"
-          className="w-48 mx-auto mb-6"
-        />
-      </div>
-
       <h1 className="text-4xl font-bold text-center mb-6">
         What is Your Archetype?
       </h1>
