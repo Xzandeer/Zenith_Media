@@ -4,72 +4,9 @@ import { useState } from "react";
 
 const ArchetypeGame = () => {
   const [answers, setAnswers] = useState<string[]>([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [result, setResult] = useState<string | null>(null);
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0); // Track the current question index
-  const [isImageVisible, setIsImageVisible] = useState<boolean>(false); // Track if the image is visible
-
-  const archetypes = {
-    A: {
-      name: "The Listener",
-      image: "listener.png",
-      description:
-        "You prefer observing over participating. You quietly take everything in — news, updates, ideas — without feeling pressured to react. You understand social media, but you’re selective in how you use it.",
-    },
-    B: {
-      name: "The Activist",
-      image: "activist.png",
-      description:
-        "You care deeply about issues and use social platforms to raise awareness. You amplify content about justice, environmental protection, or social change. Your voice has purpose and direction.",
-    },
-    C: {
-      name: "The Spammer / Promoter",
-      image: "spammer.png",
-      description:
-        "You are always promoting something — a business, an event, a project, or your personal brand. You see social media as a tool for visibility and growth.",
-    },
-    D: {
-      name: "The Passionista",
-      image: "passionista.png",
-      description:
-        "You post about what you love, whether it's cosplay, K-pop, fitness, food, photography, or anything niche. Social media is your space to express your passions.",
-    },
-    E: {
-      name: "The Social Butterfly",
-      image: "socialbutterfly.png",
-      description:
-        "You thrive on interaction. You’re always tagged, always posting, and always talking to people. Your feed is full of memories with friends, celebrations, and social events.",
-    },
-    F: {
-      name: "The Troll / Provocateur",
-      image: "troll.png",
-      description:
-        "You enjoy stirring reactions — humor, sarcasm, bold takes, debates. You keep conversations alive, even if occasionally chaotic.",
-    },
-    G: {
-      name: "The Influencer / Creator",
-      image: "creator.png",
-      description:
-        "You produce content that informs, inspires, or entertains. You know how to structure posts, create aesthetic feeds, or deliver valuable info. People follow you for a reason.",
-    },
-    H: {
-      name: "The Early Adopter / Trend Chaser",
-      image: "earlyadopter.png",
-      description:
-        "You are the first to try new platforms, filters, apps, or trends. You love exploring new digital spaces and are always ahead of the curve.",
-    },
-    I: {
-      name: "The Black Booker",
-      image: "black.png",
-      description:
-        "You use social media to build and maintain meaningful relationships. You value genuine interactions and enjoy connecting with people personally.",
-    },
-    J: {
-      name: "The Family Person",
-      image: "family.png",
-      description:
-        "You use social media to stay close to family. Your feed is warm, wholesome, and filled with life moments, reunions, and celebrations.",
-    },
-  };
+  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
 
   const questions = [
     {
@@ -179,10 +116,14 @@ const ArchetypeGame = () => {
     },
   ];
 
-  const handleAnswer = (questionIndex: number, answer: string) => {
-    const newAnswers = [...answers];
-    newAnswers[questionIndex] = answer;
-    setAnswers(newAnswers);
+  const handleAnswer = (answer: string) => {
+    setAnswers((prevAnswers) => [...prevAnswers, answer]);
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    } else {
+      calculateResult();
+    }
+    setSelectedAnswer(answer);
   };
 
   const calculateResult = () => {
@@ -209,61 +150,98 @@ const ArchetypeGame = () => {
       letterCounts[a] > letterCounts[b] ? a : b
     );
 
-    setResult(maxLetter);
-    setIsImageVisible(false); // Start by hiding the image
-    setTimeout(() => setIsImageVisible(true), 500); // Show image after delay for fade-in effect
+    switch (maxLetter) {
+      case "A":
+        setResult("The Listener");
+        break;
+      case "B":
+        setResult("The Activist");
+        break;
+      case "C":
+        setResult("The Spammer / Promoter");
+        break;
+      case "D":
+        setResult("The Passionista");
+        break;
+      case "E":
+        setResult("The Social Butterfly");
+        break;
+      case "F":
+        setResult("The Troll / Provocateur");
+        break;
+      case "G":
+        setResult("The Influencer / Creator");
+        break;
+      case "H":
+        setResult("The Early Adopter / Trend Chaser");
+        break;
+      case "I":
+        setResult("The Black Booker (Relationship-Builder)");
+        break;
+      case "J":
+        setResult("The Family Person");
+        break;
+      default:
+        setResult(null);
+    }
   };
 
   return (
     <div className="p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">What is Your Archetype?</h1>
+      <h1 className="text-4xl font-bold text-center mb-6">
+        What is Your Archetype?
+      </h1>
 
-      {questions.slice(currentQuestion, currentQuestion + 1).map((q, index) => (
-        <div key={index} className="mb-6">
-          <p className="font-medium text-lg">{q.question}</p>
+      {/* Show questions only if result is not displayed */}
+      {result === null ? (
+        <div>
+          <p className="font-medium text-lg">{questions[currentQuestionIndex].question}</p>
           <div className="space-y-2">
-            {q.options.map((option, idx) => (
+            {questions[currentQuestionIndex].options.map((option, idx) => (
               <button
                 key={idx}
-                onClick={() => handleAnswer(index, option[0])}
-                className="w-full py-2 px-4 text-left bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
+                onClick={() => handleAnswer(option[0])}
+                className={`w-full py-2 px-4 text-left bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300 ${
+                  selectedAnswer === option[0] ? "bg-[#B5452E]" : ""
+                }`}
               >
                 {option}
               </button>
             ))}
           </div>
         </div>
-      ))}
-
-      {currentQuestion < questions.length - 1 ? (
-        <button
-          onClick={() => setCurrentQuestion(currentQuestion + 1)}
-          className="w-full py-2 mt-6 bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
-        >
-          Next Question
-        </button>
       ) : (
-        <button
-          onClick={calculateResult}
-          className="w-full py-2 mt-6 bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
-        >
-          Submit Answers
-        </button>
-      )}
-
-      {result && (
         <div className="mt-6 text-center">
-          <h2 className="text-2xl font-semibold">Your Archetype: {archetypes[result].name}</h2>
-          <p className="mt-2 text-lg">{archetypes[result].description}</p>
+          <h2 className="text-2xl font-semibold">Your Archetype: {result}</h2>
+          <p className="mt-2 text-lg">Based on your answers, you are a {result}.</p>
+          {/* Show the corresponding image for the result */}
           <img
-            src={`/${archetypes[result].image}`}
-            alt={archetypes[result].name}
-            className={`mt-4 max-w-xs mx-auto transition-opacity duration-1000 ${
-              isImageVisible ? "opacity-100" : "opacity-0"
-            }`}
+            src={`/${result.toLowerCase().replace(/ /g, "")}.png`}
+            alt={result}
+            className="mx-auto mt-4 animate-fadeIn"
+            style={{ width: "200px", height: "200px" }}
           />
+          {/* Description of the Archetype */}
+          <p className="mt-4 text-lg">{/* Add the description for each archetype here */}</p>
         </div>
       )}
+
+      {/* Fade in animation */}
+      <style jsx>{`
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 };
