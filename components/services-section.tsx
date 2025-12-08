@@ -7,31 +7,30 @@ const items = [
   {
     title: "ZINE: Zenith & Out",
     description:
-      "Explore our digital Zine, filled with exciting articles and media.",
-    image: "/zine.png", // Add your thumbnail image for Zine
-    link: "/zine", // This will redirect to the Zine page
+      "An interactive digital zine that showcases our journey, stories, and visual content.",
+    image: "/zine.png",
+    link: "/zine", // Link to the Zine page
   },
   {
     title: "GAMES",
     description:
-      "Engage in interactive quizzes and games to test your knowledge and skills.",
-    image: "/Games.png", // Add your thumbnail image for GAMES
-    link: "/games", // Update with the correct page link for games
+      "Interactive games that test your knowledge on social media and digital literacy.",
+    image: "/Games.png",
+    link: "/games", // Example link to a games page
   },
   {
     title: "Article: Zenith Media Showcases Quality Learning at MIL Summit 2025",
     description:
-      "Read about Zenith Media's contribution to the MIL Summit 2025 and our commitment to quality learning.",
-    image: "/article.png", // Add your thumbnail image for the Article
-    link: "/article", // Update with the correct page link for the Article
+      "An article that highlights our work and contributions at the MIL Summit 2025.",
+    image: "/article.png",
+    link: "/article", // Example link to the article page
   },
   {
     title: "Coming Soon (MOOC and Live Webinar Session)",
     description:
-      "Get ready for our upcoming MOOCs and live webinars designed to enhance social media literacy.",
-    image:
-      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg", // Image for Coming Soon
-    link: "/coming-soon", // You can create a page for upcoming services or just leave a placeholder
+      "Stay tuned for our upcoming Massive Open Online Courses (MOOC) and live webinar sessions.",
+    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    link: "/coming-soon", // Link for the Coming Soon section
   },
 ];
 
@@ -116,13 +115,11 @@ export default function ServicesSection() {
           <p className="text-gray-200 mt-3 text-sm leading-relaxed drop-shadow">
             {items[index].description}
           </p>
-
-          {/* LINK TO SERVICE PAGE */}
-          <Link
-            href={items[index].link}
-            className="mt-5 inline-block px-6 py-2 bg-[#1F3E8A] text-white rounded-full hover:bg-[#B5452E] transition"
-          >
-            Learn More
+          {/* LEARN MORE BUTTON */}
+          <Link href={items[index].link}>
+            <a className="mt-5 inline-block px-6 py-2 bg-[#1F3E8A] text-white rounded-full hover:bg-[#B5452E] transition">
+              Learn More
+            </a>
           </Link>
         </div>
       </div>
