@@ -35,8 +35,9 @@ const moreVideos = [
 
 const podcasts = [
   { id: "jVR2joPiJ8w", title: "What is MIL?", image: "/podcast1.jpg" },
-];
 
+{ id: null , title: "Social Media Literacy Issues", image: "/socmed.png" },
+];
 export function VideosSection() {
   const [index, setIndex] = useState(0)
   const [playing, setPlaying] = useState<string | null>(null)
