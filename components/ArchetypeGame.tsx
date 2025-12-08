@@ -187,16 +187,16 @@ const ArchetypeGame = () => {
   };
 
   const imagePaths: { [key: string]: string } = {
-    "The Activist": "/images/activist.png",
-    "The Creator": "/images/creator.png",
-    "The Early Adopter / Trend Chaser": "/images/earlyadopter.png",
-    "The Family Person": "/images/family.png",
-    "The Listener": "/images/listener.png",
-    "The Passionista": "/images/passionista.png",
-    "The Social Butterfly": "/images/socialbutterfly.png",
-    "The Spammer / Promoter": "/images/spammer.png",
-    "The Troll / Provocateur": "/images/troll.png",
-    "The Black Booker (Relationship-Builder)": "/images/black.png",
+    "The Activist": "/activist.png",
+    "The Creator": "/creator.png",
+    "The Early Adopter / Trend Chaser": "/earlyadopter.png",
+    "The Family Person": "/family.png",
+    "The Listener": "/listener.png",
+    "The Passionista": "/passionista.png",
+    "The Social Butterfly": "/socialbutterfly.png",
+    "The Spammer / Promoter": "/spammer.png",
+    "The Troll / Provocateur": "/troll.png",
+    "The Black Booker (Relationship-Builder)": "/black.png",
   };
 
   return (
