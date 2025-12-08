@@ -56,7 +56,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
                 position: "absolute",
                 top: "60px",
                 left: "65px",
-                fontFamily: `"Playfair Display, serif, bold, italic`,
+                fontFamily: `"Playfair Display, serif, bold, italic"`,
                 fontSize: "150px",
                 fontWeight: 700,
                 fontStyle: "italic",
@@ -234,4 +234,3 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
     </section>
   );
 }
-  
