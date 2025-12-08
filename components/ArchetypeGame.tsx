@@ -201,6 +201,20 @@ const ArchetypeGame = () => {
 
   return (
     <div className="p-6">
+      {/* Thumbnails Section */}
+      <div className="text-center mb-6">
+        <img
+          src="/quiz.png"  // This is the "Quiz" thumbnail
+          alt="Quiz Thumbnail"
+          className="w-48 mx-auto mb-4"
+        />
+        <img
+          src="/Games.jpeg"  // This is the "Archetypes" thumbnail
+          alt="Archetypes Thumbnail"
+          className="w-48 mx-auto mb-6"
+        />
+      </div>
+
       <h1 className="text-4xl font-bold text-center mb-6">
         What is Your Archetype?
       </h1>
