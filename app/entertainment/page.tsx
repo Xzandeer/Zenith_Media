@@ -3,9 +3,11 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/navigation";
 import QuizzesSection from "@/components/quizzes-section";
+import ArchetypeSection from "@/components/archetype-section"; // Import archetype game section
 
 export default function EntertainmentPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [selectedGame, setSelectedGame] = useState("quiz"); // State to track selected game
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,9 +45,25 @@ export default function EntertainmentPage() {
         </div>
       </div>
 
-      {/* ====== QUIZ SECTION (Centered) ====== */}
+      {/* Game Selection Buttons */}
+      <div className="flex justify-center mt-6 space-x-6">
+        <button
+          className="bg-[#1F3E8A] text-white px-6 py-4 rounded-xl shadow-lg hover:bg-[#B5452E] transition-all duration-300"
+          onClick={() => setSelectedGame("quiz")}
+        >
+          Play the Quiz
+        </button>
+        <button
+          className="bg-[#1F3E8A] text-white px-6 py-4 rounded-xl shadow-lg hover:bg-[#B5452E] transition-all duration-300"
+          onClick={() => setSelectedGame("archetype")}
+        >
+          What is Your Archetype
+        </button>
+      </div>
+
+      {/* Display selected game */}
       <div className="flex justify-center mt-6 pb-20">
-        <QuizzesSection />
+        {selectedGame === "quiz" ? <QuizzesSection /> : <ArchetypeSection />} {/* Render based on selection */}
       </div>
     </main>
   );
