@@ -100,6 +100,13 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
             >
               Delivering quality learning to the highest point!
             </div>
+
+            {/* New Sentence Below the Slogan */}
+            <p
+              className="absolute top-[390px] left-[-20px] text-[#1F3E8A] text-sm font-medium z-5 transform skew-[-5deg]"
+            >
+              With the overwhelming social media-related issues today, more learning is a must. That is why we, Zenith Media, are here to help you better navigate the digital world by enhancing your social media literacy.
+            </p>
           </div>
 
           {/* CONNECT BUTTON */}
@@ -216,3 +223,4 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
     </section>
   );
 }
+  

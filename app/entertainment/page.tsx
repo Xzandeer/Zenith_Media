@@ -38,7 +38,7 @@ export default function EntertainmentPage() {
 
           {/* Subtitle */}
           <p className="text-base md:text-lg text-[#0B0F1A]/80 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
-            Explore our interactive quizzes and entertainment content designed to engage and inform.
+            The entertainment section is a space where users will be met with Quiz and Game challenges, but will also be rewarded with a gift of knowledge.
           </p>
         </div>
       </div>

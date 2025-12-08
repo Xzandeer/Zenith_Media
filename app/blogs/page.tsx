@@ -163,6 +163,11 @@ export default function BlogsPage() {
             Zenith Media Journal
           </h1>
 
+          {/* Add the new sentence here */}
+          <p className="text-lg text-[#6a4b3c] mt-4 text-center">
+            Join us as we explore and make sense of today’s fast-paced digital world through social media literacy lenses.
+          </p>
+
           <input
             type="text"
             placeholder="Search blog titles..."
@@ -228,7 +233,6 @@ export default function BlogsPage() {
           </div>
         )}
       </section>
-
     </main>
   );
 }

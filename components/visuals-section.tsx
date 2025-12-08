@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
-const tabs = ["Infographics", "Posters", "Data Tools", "Art Cards"]
+const tabs = ["Infographics", "Posters", "Data Tools", "Art Cards"];
 
 const visualsData: Record<string, string[]> = {
   Infographics: [
@@ -39,13 +39,13 @@ const visualsData: Record<string, string[]> = {
     "/visual15.png",
     "/visual16.png",
   ],
-}
+};
 
 export function VisualsSection() {
-  const [activeTab, setActiveTab] = useState("Infographics")
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [activeTab, setActiveTab] = useState("Infographics");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const visuals = visualsData[activeTab]
+  const visuals = visualsData[activeTab];
 
   return (
     <section
@@ -59,8 +59,15 @@ export function VisualsSection() {
       }}
     >
       <div className="relative max-w-7xl mx-auto">
-        <h2 className="font-serif text-6xl font-bold text-white mb-12">Visuals</h2>
+        {/* Visuals Heading */}
+        <h2 className="font-serif text-6xl font-bold text-[#7a3a2f] mb-12">Visuals</h2>
 
+        {/* Added sentence below the heading */}
+        <p className="text-lg text-[#6a4b3c] mt-4 text-center">
+          Explore the collection of visually created infographics, posters, data visualization tools and artcards all in one place.
+        </p>
+
+        {/* Tabs for filtering */}
         <div className="flex gap-4 mb-12">
           {tabs.map((tab) => (
             <button
@@ -77,6 +84,7 @@ export function VisualsSection() {
           ))}
         </div>
 
+        {/* Visual Display Grid */}
         <div className="grid md:grid-cols-3 gap-6">
           {visuals.map((visual, index) => (
             <div
@@ -94,6 +102,7 @@ export function VisualsSection() {
         </div>
       </div>
 
+      {/* Expanded Image Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
@@ -107,5 +116,5 @@ export function VisualsSection() {
         </div>
       )}
     </section>
-  )
+  );
 }

@@ -44,7 +44,7 @@ export function MissionVisionValuesSDG() {
           <h3 className="text-xl font-bold text-[#1F3E8A] mb-4">Values</h3>
 
           <ul className="space-y-2 text-sm text-[#0B0F1A]">
-            <li><b>Z – Zealful:</b> We approach our work with passion and enthusiasm.</li>
+            <li><b>Z – Zealous:</b> We approach our work with passion and enthusiasm.</li>
             <li><b>E – Educating:</b> We create resources that guide learning and support growth.</li>
             <li><b>N – Noble:</b> We act with sincerity and respect for knowledge.</li>
             <li><b>I – Innovative:</b> We embrace creativity and modern approaches.</li>
