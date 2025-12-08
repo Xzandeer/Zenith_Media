@@ -7,30 +7,30 @@ const items = [
   {
     title: "ZINE: Zenith & Out",
     description:
-      "An interactive digital zine that showcases our journey, stories, and visual content.",
+      "A creative collection that breaks down the chaos of the online world into stories, insights, and reflections you can relate to.",
     image: "/zine.png",
-    link: "/zine", // Link to the Zine page
+    link: "/zine", // Link to the zine page
   },
   {
     title: "GAMES",
-    description:
-      "Interactive games that test your knowledge on social media and digital literacy.",
+    description: "Test your knowledge with our engaging quizzes.",
     image: "/Games.png",
-    link: "/games", // Example link to a games page
+    link: "/games", // Link to the games page (if you have it)
   },
   {
     title: "Article: Zenith Media Showcases Quality Learning at MIL Summit 2025",
     description:
-      "An article that highlights our work and contributions at the MIL Summit 2025.",
+      "An article by Ina Jirah Serquiña showcasing Zenith Media's exhibit at the MIL Summit 2025.",
     image: "/article.png",
-    link: "/article", // Example link to the article page
+    link: "/article", // Link to the article page
   },
   {
     title: "Coming Soon (MOOC and Live Webinar Session)",
     description:
-      "Stay tuned for our upcoming Massive Open Online Courses (MOOC) and live webinar sessions.",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-    link: "/coming-soon", // Link for the Coming Soon section
+      "Stay tuned for upcoming online courses and live sessions on digital literacy and social media.",
+    image:
+      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg", // Coming soon image
+    link: "/coming-soon", // Placeholder link for "Coming Soon"
   },
 ];
 
@@ -115,11 +115,13 @@ export default function ServicesSection() {
           <p className="text-gray-200 mt-3 text-sm leading-relaxed drop-shadow">
             {items[index].description}
           </p>
-          {/* LEARN MORE BUTTON */}
-          <Link href={items[index].link}>
-            <a className="mt-5 inline-block px-6 py-2 bg-[#1F3E8A] text-white rounded-full hover:bg-[#B5452E] transition">
-              Learn More
-            </a>
+
+          {/* Link to Service */}
+          <Link
+            href={items[index].link}
+            className="mt-6 inline-block text-sm text-[#1F3E8A] hover:text-[#B5452E] transition"
+          >
+            Learn More &rarr;
           </Link>
         </div>
       </div>

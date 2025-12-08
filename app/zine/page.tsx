@@ -1,7 +1,11 @@
 "use client";
 
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+=======
+import Link from "next/link";
+>>>>>>> e9abfd6 (Added Zine and Article pages)
 
 const ZinePage = () => {
   const [isClient, setIsClient] = useState(false);
