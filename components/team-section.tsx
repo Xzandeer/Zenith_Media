@@ -6,6 +6,7 @@ const team = [
     role: "Team Coordinator, Research & Content Writing Member",
     image: "/mem1.jpg",
     bgColor: "bg-[#F2D7D5]",
+    bio: "Brief background: I am a Communication student who is passionate about writing. I have experience writing hard news and literary pieces for school publications, as well as scripts for theatrical plays, a TV production, and in short films. I also have experience in managing a social media page while being a part of a Marketing and Public Engagement Committee.",
   },
   {
     name: "KASHEEM ADREI O. SIBORBORO",
@@ -124,6 +125,13 @@ export function TeamSection() {
                     </p>
                   </div>
                 </div>
+
+                {/* Bio Display (Only visible when hovering over Ina's card) */}
+                {member.name === "INA JIRAH F. SERQUIÑA" && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#F2D7D5] p-4 rounded-b-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-[#0B0F1A] text-sm">{member.bio}</p>
+                  </div>
+                )}
 
                 {/* Shadow Behind */}
                 <div className="absolute -bottom-3 -right-3 w-full h-full bg-[#0B0F1A] rounded-3xl -z-10 opacity-10"></div>
