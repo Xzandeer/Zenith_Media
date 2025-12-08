@@ -62,6 +62,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
                 fontStyle: "italic",
                 color: "#B5452E",
                 zIndex: 2,
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)", // Text shadow added
               }}
             >
               Zenith
@@ -109,13 +110,14 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
               marginTop: "10px", // Adjusted to give more space below the slogan
               width: "240px",
               height: "55px",
-              backgroundColor: "#B5452E",
+              background: "linear-gradient(45deg, #B5452E, #1F3E8A)", // Gradient added here
               color: "white",
               borderRadius: "35px",
               border: "none",
               fontSize: "18px",
               cursor: "pointer",
             }}
+            className="transition-transform transform hover:scale-105 hover:shadow-xl" // Refined hover effect with scale and shadow
           >
             connect with us
           </button>
@@ -209,10 +211,19 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
           shadow-lg backdrop-blur
           hover:bg-white transition
           animate-bounce
+          hover:shadow-xl
+          hover:text-[#B5452E] /* On hover, change color */
         "
       >
         <span className="text-3xl leading-none">↓</span>
       </button>
+
+      {/* Smooth Scroll Effect */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
     </section>
   );
 }
