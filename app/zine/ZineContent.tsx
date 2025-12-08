@@ -1,31 +1,7 @@
-"use client"; // This ensures the code runs only on the client-side
+// ZineContent.tsx
+import React from "react";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-
-// Dynamically import the page with SSR disabled
-const ZineContent = dynamic(() => import('./ZineContent'), { ssr: false });
-
-const ZinePage = () => {
-  const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
-
-  // Client-side check to ensure this page only runs on the client
-  useEffect(() => {
-    setIsClient(true); // This will ensure code only runs on the client
-  }, []);
-
-  // Handle the return button click event
-  const handleReturn = () => {
-    router.push("/services"); // Redirects to the services page
-  };
-
-  if (!isClient) {
-    // Return a loading state or fallback UI
-    return <div>Loading...</div>;
-  }
-
+const ZineContent = () => {
   return (
     <section
       className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
@@ -60,7 +36,7 @@ const ZinePage = () => {
 
         {/* Return Button */}
         <button
-          onClick={handleReturn}
+          onClick={() => window.history.back()} // Goes back to previous page
           className="bg-[#1F3E8A] text-white px-8 py-4 rounded-full shadow-lg hover:bg-[#B5452E] transition-all duration-300"
         >
           Return to Services
@@ -70,4 +46,4 @@ const ZinePage = () => {
   );
 };
 
-export default ZinePage;
+export default ZineContent;
