@@ -1,11 +1,19 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/router";
 
 const ZinePage = () => {
+  const router = useRouter();
+
+  // Function to handle the return button click
+  const handleReturn = () => {
+    router.push("/services"); // Redirects to services page or wherever you want the return button to link
+  };
+
   return (
     <section
-      className="w-full h-screen flex items-center justify-center relative overflow-hidden"
+      className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage: "url('/BACKGROUND.png')",
         backgroundSize: "cover",
@@ -13,15 +21,15 @@ const ZinePage = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="relative w-full px-8 py-20">
-        <h2 className="text-center text-4xl font-bold text-[#1F3E8A] mb-10">
+      <div className="relative w-full px-8 py-20 max-w-6xl mx-auto text-center">
+        <h2 className="text-4xl font-bold text-[#1F3E8A] mb-10">
           Zenith & Out Zine
         </h2>
 
         {/* Embed Zine from Heyzine */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 mb-6">
           <iframe
-            src="https://heyzine.com/flip-book/8550490900.html" // Your Heyzine Zine link
+            src="https://heyzine.com/flip-book/8550490900.html"
             width="100%"
             height="800px"
             frameBorder="0"
@@ -29,6 +37,19 @@ const ZinePage = () => {
             className="rounded-xl shadow-lg"
           />
         </div>
+
+        {/* Description Below the Zine */}
+        <p className="text-lg font-medium text-[#1F3E8A] mb-12 max-w-2xl mx-auto">
+          A creative collection that breaks down the chaos of the online world into stories, insights, and reflections you can relate to.
+        </p>
+
+        {/* Return Button */}
+        <button
+          onClick={handleReturn}
+          className="bg-[#1F3E8A] text-white px-8 py-4 rounded-full shadow-lg hover:bg-[#B5452E] transition-all duration-300"
+        >
+          Return to Services
+        </button>
       </div>
     </section>
   );
