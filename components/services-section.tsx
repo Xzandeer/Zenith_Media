@@ -15,7 +15,7 @@ const items = [
     title: "GAMES",
     description: "Test your knowledge with our engaging quizzes.",
     image: "/Games.png",
-    link: "/games", // Link to the games page (if you have it)
+    link: "/entertainment", // Link to the games page (if you have it)
   },
   {
     title: "Article: Zenith Media Showcases Quality Learning at MIL Summit 2025",
