@@ -1,34 +1,11 @@
-"use client"; // This ensures the code runs only on the client-side
+"use client";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-
-// Dynamically import the page with SSR disabled
-const ZineContent = dynamic(() => import('./ZineContent'), { ssr: false });
+import React from "react";
 
 const ZinePage = () => {
-  const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
-
-  // Client-side check to ensure this page only runs on the client
-  useEffect(() => {
-    setIsClient(true); // This will ensure code only runs on the client
-  }, []);
-
-  // Handle the return button click event
-  const handleReturn = () => {
-    router.push("/services"); // Redirects to the services page
-  };
-
-  if (!isClient) {
-    // Return a loading state or fallback UI
-    return <div>Loading...</div>;
-  }
-
   return (
     <section
-      className="w-full min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      className="w-full h-screen flex items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage: "url('/BACKGROUND.png')",
         backgroundSize: "cover",
@@ -36,15 +13,15 @@ const ZinePage = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="relative w-full px-8 py-20 max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#1F3E8A] mb-10">
+      <div className="relative w-full px-8 py-20">
+        <h2 className="text-center text-4xl font-bold text-[#1F3E8A] mb-10">
           Zenith & Out Zine
         </h2>
 
         {/* Embed Zine from Heyzine */}
-        <div className="flex justify-center mt-10 mb-6">
+        <div className="flex justify-center mt-10">
           <iframe
-            src="https://heyzine.com/flip-book/8550490900.html"
+            src="https://heyzine.com/flip-book/8550490900.html" // Your Heyzine Zine link
             width="100%"
             height="800px"
             frameBorder="0"
@@ -57,14 +34,6 @@ const ZinePage = () => {
         <p className="text-lg font-medium text-[#1F3E8A] mb-12 max-w-2xl mx-auto">
           A creative collection that breaks down the chaos of the online world into stories, insights, and reflections you can relate to.
         </p>
-
-        {/* Return Button */}
-        <button
-          onClick={handleReturn}
-          className="bg-[#1F3E8A] text-white px-8 py-4 rounded-full shadow-lg hover:bg-[#B5452E] transition-all duration-300"
-        >
-          Return to Services
-        </button>
       </div>
     </section>
   );
