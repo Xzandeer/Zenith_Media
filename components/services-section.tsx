@@ -1,31 +1,37 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const items = [
   {
     title: "ZINE: Zenith & Out",
     description:
-      "A digital magazine bringing insightful stories, trends, and content that aims to elevate media literacy and quality education.",
-    image: "/zine.png",
+      "Explore our digital Zine, filled with exciting articles and media.",
+    image: "/zine.png", // Add your thumbnail image for Zine
+    link: "/zine", // This will redirect to the Zine page
   },
   {
     title: "GAMES",
     description:
-      "Engage with interactive games that test your knowledge and skills in various areas such as media literacy and personality traits.",
-    image: "/Games.png",
+      "Engage in interactive quizzes and games to test your knowledge and skills.",
+    image: "/Games.png", // Add your thumbnail image for GAMES
+    link: "/games", // Update with the correct page link for games
   },
   {
     title: "Article: Zenith Media Showcases Quality Learning at MIL Summit 2025",
     description:
-      "An in-depth look at Zenith Media’s contribution to the Media and Information Literacy (MIL) Summit 2025, highlighting key topics and insights.",
-    image: "/article.png",
+      "Read about Zenith Media's contribution to the MIL Summit 2025 and our commitment to quality learning.",
+    image: "/article.png", // Add your thumbnail image for the Article
+    link: "/article", // Update with the correct page link for the Article
   },
   {
     title: "Coming Soon (MOOC and Live Webinar Session)",
     description:
-      "Stay tuned for upcoming online courses (MOOCs) and live webinars designed to offer flexible, high-quality learning experiences.",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+      "Get ready for our upcoming MOOCs and live webinars designed to enhance social media literacy.",
+    image:
+      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg", // Image for Coming Soon
+    link: "/coming-soon", // You can create a page for upcoming services or just leave a placeholder
   },
 ];
 
@@ -110,6 +116,14 @@ export default function ServicesSection() {
           <p className="text-gray-200 mt-3 text-sm leading-relaxed drop-shadow">
             {items[index].description}
           </p>
+
+          {/* LINK TO SERVICE PAGE */}
+          <Link
+            href={items[index].link}
+            className="mt-5 inline-block px-6 py-2 bg-[#1F3E8A] text-white rounded-full hover:bg-[#B5452E] transition"
+          >
+            Learn More
+          </Link>
         </div>
       </div>
 
