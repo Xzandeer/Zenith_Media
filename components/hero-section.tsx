@@ -56,7 +56,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
                 position: "absolute",
                 top: "60px",
                 left: "65px",
-                fontFamily: "Playfair Display, serif",
+                fontFamily: `"Playfair Display, serif, bold, italic"`,
                 fontSize: "150px",
                 fontWeight: "bold",
                 fontStyle: "italic",
@@ -104,7 +104,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
 
             {/* New Sentence Below the Slogan */}
             <p
-              className="absolute top-[390px] left-[-20px] text-[#1F3E8A] text-sm font-medium z-5 transform skew-[-5deg]"
+              className="absolute top-[390px] left-[-20px] text-[#1F3E8A] text-sm font-medium z-5"
             >
               With the overwhelming social media-related issues today, more learning is a must. That is why we, Zenith Media, are here to help you better navigate the digital world by enhancing your social media literacy.
             </p>
