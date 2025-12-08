@@ -5,6 +5,8 @@ import { useState } from "react";
 const ArchetypeGame = () => {
   const [answers, setAnswers] = useState<string[]>([]);
   const [result, setResult] = useState<string | null>(null);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0); // Track the current question index
+  const [isImageVisible, setIsImageVisible] = useState<boolean>(false); // Track if the image is visible
 
   const archetypes = {
     A: {
@@ -208,15 +210,15 @@ const ArchetypeGame = () => {
     );
 
     setResult(maxLetter);
+    setIsImageVisible(false); // Start by hiding the image
+    setTimeout(() => setIsImageVisible(true), 500); // Show image after delay for fade-in effect
   };
 
   return (
     <div className="p-6">
-      <h1 className="text-4xl font-bold text-center mb-6">
-        What is Your Archetype?
-      </h1>
+      <h1 className="text-4xl font-bold text-center mb-6">What is Your Archetype?</h1>
 
-      {questions.map((q, index) => (
+      {questions.slice(currentQuestion, currentQuestion + 1).map((q, index) => (
         <div key={index} className="mb-6">
           <p className="font-medium text-lg">{q.question}</p>
           <div className="space-y-2">
@@ -233,12 +235,21 @@ const ArchetypeGame = () => {
         </div>
       ))}
 
-      <button
-        onClick={calculateResult}
-        className="w-full py-2 mt-6 bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
-      >
-        Submit Answers
-      </button>
+      {currentQuestion < questions.length - 1 ? (
+        <button
+          onClick={() => setCurrentQuestion(currentQuestion + 1)}
+          className="w-full py-2 mt-6 bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
+        >
+          Next Question
+        </button>
+      ) : (
+        <button
+          onClick={calculateResult}
+          className="w-full py-2 mt-6 bg-[#1F3E8A] text-white rounded-md hover:bg-[#B5452E] transition-all duration-300"
+        >
+          Submit Answers
+        </button>
+      )}
 
       {result && (
         <div className="mt-6 text-center">
@@ -247,7 +258,9 @@ const ArchetypeGame = () => {
           <img
             src={`/${archetypes[result].image}`}
             alt={archetypes[result].name}
-            className="mt-4 max-w-xs mx-auto"
+            className={`mt-4 max-w-xs mx-auto transition-opacity duration-1000 ${
+              isImageVisible ? "opacity-100" : "opacity-0"
+            }`}
           />
         </div>
       )}
