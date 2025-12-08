@@ -216,7 +216,7 @@ const ArchetypeGame = () => {
           <p className="mt-2 text-lg">Based on your answers, you are a {result}.</p>
           {/* Show the corresponding image for the result */}
           <img
-            src={`/${result.toLowerCase().replace(/ /g, "")}.png`}
+            src={`/images/${result.toLowerCase().replace(/ /g, "")}.png`}
             alt={result}
             className="mx-auto mt-4 animate-fadeIn"
             style={{ width: "200px", height: "200px" }}
