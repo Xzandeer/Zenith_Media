@@ -56,9 +56,9 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
                 position: "absolute",
                 top: "60px",
                 left: "65px",
-                fontFamily: `"Playfair Display, serif, bold, italic"`,
+                fontFamily: "Playfair Display, serif",
                 fontSize: "150px",
-                fontWeight: 700,
+                fontWeight: "bold",
                 fontStyle: "italic",
                 color: "#B5452E",
                 zIndex: 2,
@@ -210,17 +210,7 @@ export function HeroSection({ onScrollDown }: { onScrollDown: () => void }) {
       {/* SCROLL DOWN ARROW */}
       <button
         onClick={onScrollDown}
-        className="
-          absolute bottom-10 left-1/2 -translate-x-1/2 
-          flex items-center justify-center
-          w-14 h-14 rounded-full 
-          bg-white/80 text-[#1F3E8A] 
-          shadow-lg backdrop-blur
-          hover:bg-white transition
-          animate-bounce
-          hover:shadow-xl
-          hover:text-[#B5452E] /* On hover, change color */
-        "
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-white/80 text-[#1F3E8A] shadow-lg backdrop-blur hover:bg-white transition animate-bounce hover:shadow-xl hover:text-[#B5452E]"
       >
         <span className="text-3xl leading-none">↓</span>
       </button>
