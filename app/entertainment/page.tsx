@@ -50,7 +50,7 @@ export default function EntertainmentPage() {
       <div
         className={`transition-opacity duration-700 ${selectedGame ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
-        <div className="flex justify-center mt-6 pb-20 space-x-12">
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl space-x-12">
           <button
             onClick={() => handleGameSelect("quiz")}
             className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
@@ -74,16 +74,28 @@ export default function EntertainmentPage() {
       </div>
 
       {/* Show Selected Game */}
-      <div className={`transition-opacity duration-700 ${selectedGame ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`transition-opacity duration-700 ${selectedGame ? 'opacity-100' : 'opacity-0 pointer-events-none'} relative mt-6 pb-20`}> ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         {selectedGame === "quiz" && (
-          <div className="flex justify-center mt-6 pb-20">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
             <QuizzesSection />
           </div>
         )}
         {selectedGame === "archetype" && (
-          <div className="flex justify-center mt-6 pb-20">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
             <ArchetypeGame />
           </div>
+        )}
+      </div>
+      {selectedGame === "quiz" && (
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
+          <QuizzesSection />
+        </div>
+      )}
+
+      {selectedGame === "archetype" && (
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
+          <ArchetypeGame />
+        </div>
       )}
           {/* Fun UI Enhancements */}
       <style>{`
