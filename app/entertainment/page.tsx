@@ -46,47 +46,64 @@ export default function EntertainmentPage() {
         </div>
       </div>
 
-      {/* ====== GAME WRAPPER (Centers both selection and game in the exact same position) ====== */}
-<div className="w-full flex justify-center">
-  <div className="w-[60vw] max-w-[900px]">
-    
-    {/* ====== GAME SELECTION (Fades Out) ====== */}
-    <div
-      className={`transition-opacity duration-700 mt-6 pb-20 space-x-12 flex justify-between
-      ${selectedGame ? "opacity-0 pointer-events-none" : "opacity-100"}`}
-    >
-      {/* QUIZ CARD */}
-      <button
-        onClick={() => handleGameSelect("quiz")}
-        className="relative w-[45%] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+      {/* Game Selection Section */}
+      <div
+        className={`transition-opacity duration-700 ${selectedGame ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
-        <img src="/quiz.jpg" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-          <span className="text-white font-bold text-xl tracking-wide">Quiz</span>
+        <div className="flex justify-center mt-6 pb-20 space-x-12">
+          <button
+            onClick={() => handleGameSelect("quiz")}
+            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+          >
+            <img src="/quiz.jpg" alt="Quiz Thumbnail" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
+            </div>
+          </button>
+
+          <button
+            onClick={() => handleGameSelect("archetype")}
+            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+          >
+            <img src="/archetype.jpg" alt="Archetype Thumbnail" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
+            </div>
+          </button>
         </div>
-      </button>
+      </div>
 
-      {/* ARCHETYPE CARD */}
-      <button
-        onClick={() => handleGameSelect("archetype")}
-        className="relative w-[45%] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-      >
-        <img src="/archetype.jpg" className="w-full h-full object-cover" />
-        <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-          <span className="text-white font-bold text-xl tracking-wide">Archetype</span>
+      {/* Show Selected Game */}
+      <div className={`transition-opacity duration-700 ${selectedGame ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        {selectedGame === "quiz" && (
+          <div className="flex justify-center mt-6 pb-20">
+            <QuizzesSection />
+          </div>
+        )}
+        {selectedGame === "archetype" && (
+          <div className="flex justify-center mt-6 pb-20">
+            <ArchetypeGame />
+          </div>
+        )}
+      </div>
+      {selectedGame === "quiz" && (
+        <div className="flex justify-center mt-6 pb-20">
+          <QuizzesSection />
         </div>
-      </button>
-    </div>
+      )}
 
-    {/* ====== GAME CONTENT (Fades In) ====== */}
-    <div
-      className={`transition-opacity duration-700 mt-6 pb-20
-      ${selectedGame ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-    >
-      {selectedGame === "quiz" && <QuizzesSection />}
-      {selectedGame === "archetype" && <ArchetypeGame />}
-    </div>
-
-  </div>
-</div>
-
+      {selectedGame === "archetype" && (
+        <div className="flex justify-center mt-6 pb-20">
+          <ArchetypeGame />
+        </div>
+      )}
+          {/* Fun UI Enhancements */}
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+      `}</style>
+    </main>
+  );
+}
