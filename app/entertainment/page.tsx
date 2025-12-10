@@ -47,44 +47,52 @@ export default function EntertainmentPage() {
       </div>
 
       {/* Game Selection Section */}
-      <div className="flex justify-center mt-6 pb-20 space-x-12">
-        <button
-          onClick={() => handleGameSelect("quiz")}
-          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-        >
-          <img
-            src="/quiz.jpg"
-            alt="Quiz Thumbnail"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
-          </div>
-        </button>
+      <div
+        className={`transition-opacity duration-700 ${selectedGame ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+      >
+        <div className="flex justify-center mt-6 pb-20 space-x-12">
+          <button
+            onClick={() => handleGameSelect("quiz")}
+            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+          >
+            <img src="/quiz.jpg" alt="Quiz Thumbnail" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
+            </div>
+          </button>
 
-        <button
-          onClick={() => handleGameSelect("what is your archetype")}
-          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-        >
-          <img
-            src="/archetype.jpg"
-            alt="Archetype Thumbnail"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
-          </div>
-        </button>
+          <button
+            onClick={() => handleGameSelect("archetype")}
+            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+          >
+            <img src="/archetype.jpg" alt="Archetype Thumbnail" className="w-full h-full object-cover" />
+            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
+            </div>
+          </button>
+        </div>
       </div>
 
       {/* Show Selected Game */}
+      <div className={`transition-opacity duration-700 ${selectedGame ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        {selectedGame === "quiz" && (
+          <div className="flex justify-center mt-6 pb-20">
+            <QuizzesSection />
+          </div>
+        )}
+        {selectedGame === "archetype" && (
+          <div className="flex justify-center mt-6 pb-20">
+            <ArchetypeGame />
+          </div>
+        )}
+      </div>
       {selectedGame === "quiz" && (
         <div className="flex justify-center mt-6 pb-20">
           <QuizzesSection />
         </div>
       )}
 
-      {selectedGame === "what is your archetype" && (
+      {selectedGame === "archetype" && (
         <div className="flex justify-center mt-6 pb-20">
           <ArchetypeGame />
         </div>
