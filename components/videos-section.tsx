@@ -13,10 +13,6 @@ const heroVideos = [
     title: `Ever heard of the "I Love You" virus?`,
   },
   {
-    id: "818779584459531",
-    title: "𝐖𝐨𝐦𝐞𝐧 𝐞𝐦𝐩𝐨𝐰𝐞𝐫𝐦𝐞𝐧𝐭 — 𝐧𝐨𝐭 𝐡𝐚𝐫𝐫𝐚𝐬𝐬𝐦𝐞𝐧𝐭!",
-  },
-  {
     id: "914qlCBGKdU",
     title: "CCU Tips to become social media literate? What's that?",
   },
@@ -26,6 +22,10 @@ const moreVideos = [
   {
     id: "Mg6hPZbJlDo",
     title: "The reality of the Philippines being a social media capital of the world",
+  },
+  {
+    id: "https://www.facebook.com/reel/818779584459531",
+    title: "𝐖𝐨𝐦𝐞𝐧 𝐞𝐦𝐩𝐨𝐰𝐞𝐫𝐦𝐞𝐧𝐭 — 𝐧𝐨𝐭 𝐡𝐚𝐫𝐫𝐚𝐬𝐬𝐦𝐞𝐧𝐭!",
   },
   {
     id: "M773G0GWpoM",
