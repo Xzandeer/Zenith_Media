@@ -1,3 +1,5 @@
+instead of putting "justify-center", can you just put the exact position of where the game should appear, which is where the game selection disappeared. And also suggest some stuff we can do to the UI to make it look more fun and entertaining
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -46,56 +48,41 @@ export default function EntertainmentPage() {
         </div>
       </div>
 
-      {/* ====== GAME SELECTION + CONTENT ====== */}
-      <div className="relative mt-6 pb-20 h-[420px] mx-auto max-w-[420px]">
-        {/* GAME SELECTION (Fades Out) */}
-        <div
-          className={`transition-opacity duration-700 absolute top-0 left-1/2 transform -translate-x-1/2 w-full flex space-x-12
-            ${selectedGame ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+      {/* ====== GAME SELECTION (Fades Out) ====== */}
+      <div
+        className={`transition-opacity duration-700 flex justify-center mt-6 pb-20 space-x-12
+        ${selectedGame ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+      >
+        {/* QUIZ CARD */}
+        <button
+          onClick={() => handleGameSelect("quiz")}
+          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
         >
-          {/* QUIZ CARD */}
-          <button
-            onClick={() => handleGameSelect("quiz")}
-            className="relative w-[50%] h-full bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-          >
-            <img
-              src="/quiz.jpg"
-              alt="Quiz Thumbnail"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-              <span className="text-white font-bold text-xl tracking-wide drop-shadow">
-                Quiz
-              </span>
-            </div>
-          </button>
+          <img src="/quiz.jpg" alt="Quiz Thumbnail" className="w-full h-full object-cover" />
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
+          </div>
+        </button>
 
-          {/* ARCHETYPE CARD */}
-          <button
-            onClick={() => handleGameSelect("archetype")}
-            className="relative w-[50%] h-full bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-          >
-            <img
-              src="/archetype.jpg"
-              alt="Archetype Thumbnail"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-              <span className="text-white font-bold text-xl tracking-wide drop-shadow">
-                Archetype
-              </span>
-            </div>
-          </button>
-        </div>
-
-        {/* GAME CONTENT (Fades In in SAME POSITION) */}
-        <div
-          className={`transition-opacity duration-700 absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full
-            ${selectedGame ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        {/* ARCHETYPE CARD */}
+        <button
+          onClick={() => handleGameSelect("archetype")}
+          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
         >
-          {selectedGame === "quiz" && <QuizzesSection />}
-          {selectedGame === "archetype" && <ArchetypeGame />}
-        </div>
+          <img src="/archetype.jpg" alt="Archetype Thumbnail" className="w-full h-full object-cover" />
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
+          </div>
+        </button>
+      </div>
+
+      {/* ====== GAME CONTENT (Fades In in EXACT same position) ====== */}
+      <div
+        className={`transition-opacity duration-700 flex justify-center mt-6 pb-20
+        ${selectedGame ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      >
+        {selectedGame === "quiz" && <QuizzesSection />}
+        {selectedGame === "archetype" && <ArchetypeGame />}
       </div>
     </main>
   );
