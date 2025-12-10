@@ -85,18 +85,6 @@ export default function EntertainmentPage() {
             <ArchetypeGame />
           </div>
         )}
-      </div>
-      {selectedGame === "quiz" && (
-        <div className="flex justify-center mt-6 pb-20">
-          <QuizzesSection />
-        </div>
-      )}
-
-      {selectedGame === "archetype" && (
-        <div className="flex justify-center mt-6 pb-20">
-          <ArchetypeGame />
-        </div>
-      )}
     </main>
   );
 }
