@@ -36,12 +36,9 @@ export default function EntertainmentPage() {
       {/* ====== TOP HEADER SECTION ====== */}
       <div className="pt-28 pb-6">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          {/* Page Title */}
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#1F3E8A] mb-3 drop-shadow-md">
             Entertainment
           </h1>
-
-          {/* Subtitle */}
           <p className="text-base md:text-lg text-[#0B0F1A]/80 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
             The entertainment section is a space where users will be met with Quiz
             and Game challenges, but will also be rewarded with a gift of knowledge.
@@ -50,18 +47,33 @@ export default function EntertainmentPage() {
       </div>
 
       {/* Game Selection Section */}
-      <div className="flex justify-center mt-6 pb-20 space-x-4">
+      <div className="flex justify-center mt-6 pb-20 space-x-8">
         <button
           onClick={() => handleGameSelect("quiz")}
-          className="w-32 py-2 bg-[#1F3E8A] text-white rounded-lg shadow-lg hover:bg-[#B5452E] transition-all duration-300"
+          className="w-40 h-40 bg-white rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden flex flex-col items-center justify-center"
         >
-          Quiz
+          <img
+            src="/quiz.jpg"
+            alt="Quiz Thumbnail"
+            className="w-full h-full object-cover"
+          />
+          <span className="absolute bottom-2 text-white font-bold bg-black/40 px-3 py-1 rounded-md text-sm">
+            Quiz
+          </span>
         </button>
+
         <button
           onClick={() => handleGameSelect("archetype")}
-          className="w-32 py-2 bg-[#1F3E8A] text-white rounded-lg shadow-lg hover:bg-[#B5452E] transition-all duration-300"
+          className="w-40 h-40 bg-white rounded-2xl shadow-xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden flex flex-col items-center justify-center"
         >
-          Archetype
+          <img
+            src="/archetype.jpg"
+            alt="Archetype Thumbnail"
+            className="w-full h-full object-cover"
+          />
+          <span className="absolute bottom-2 text-white font-bold bg-black/40 px-3 py-1 rounded-md text-sm">
+            Archetype
+          </span>
         </button>
       </div>
 
