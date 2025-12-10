@@ -1,5 +1,3 @@
-instead of putting "justify-center", can you just put the exact position of where the game should appear, which is where the game selection disappeared. And also suggest some stuff we can do to the UI to make it look more fun and entertaining
-
 "use client";
 
 import { useState, useEffect } from "react";
