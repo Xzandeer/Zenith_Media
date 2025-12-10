@@ -46,64 +46,42 @@ export default function EntertainmentPage() {
         </div>
       </div>
 
-      {/* Game Selection Section */}
+      {/* ====== GAME SELECTION (Fades Out) ====== */}
       <div
-        className={`transition-opacity duration-700 ${selectedGame ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`transition-opacity duration-700 flex justify-center mt-6 pb-20 space-x-12
+        ${selectedGame ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl space-x-12">
-          <button
-            onClick={() => handleGameSelect("quiz")}
-            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-          >
-            <img src="/quiz.jpg" alt="Quiz Thumbnail" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
-            </div>
-          </button>
+        {/* QUIZ CARD */}
+        <button
+          onClick={() => handleGameSelect("quiz")}
+          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+        >
+          <img src="/quiz.jpg" alt="Quiz Thumbnail" className="w-full h-full object-cover" />
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Quiz</span>
+          </div>
+        </button>
 
-          <button
-            onClick={() => handleGameSelect("archetype")}
-            className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
-          >
-            <img src="/archetype.jpg" alt="Archetype Thumbnail" className="w-full h-full object-cover" />
-            <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
-              <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
-            </div>
-          </button>
-        </div>
+        {/* ARCHETYPE CARD */}
+        <button
+          onClick={() => handleGameSelect("archetype")}
+          className="relative w-[60vw] max-w-[420px] h-[60vw] max-h-[420px] bg-white rounded-3xl shadow-2xl hover:scale-105 transition-all duration-300 border-4 border-[#1F3E8A] overflow-hidden"
+        >
+          <img src="/archetype.jpg" alt="Archetype Thumbnail" className="w-full h-full object-cover" />
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 py-3 text-center">
+            <span className="text-white font-bold text-xl tracking-wide drop-shadow">Archetype</span>
+          </div>
+        </button>
       </div>
 
-      {/* Show Selected Game */}
-      <div className={`transition-opacity duration-700 ${selectedGame ? 'opacity-100' : 'opacity-0 pointer-events-none'} relative mt-6 pb-20`}> ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        {selectedGame === "quiz" && (
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
-            <QuizzesSection />
-          </div>
-        )}
-        {selectedGame === "archetype" && (
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
-            <ArchetypeGame />
-          </div>
-        )}
+      {/* ====== GAME CONTENT (Fades In in EXACT same position) ====== */}
+      <div
+        className={`transition-opacity duration-700 flex justify-center mt-6 pb-20
+        ${selectedGame ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      >
+        {selectedGame === "quiz" && <QuizzesSection />}
+        {selectedGame === "archetype" && <ArchetypeGame />}
       </div>
-      {selectedGame === "quiz" && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
-          <QuizzesSection />
-        </div>
-      )}
-
-      {selectedGame === "archetype" && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full max-w-4xl">
-          <ArchetypeGame />
-        </div>
-      )}
-          {/* Fun UI Enhancements */}
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-6px); }
-        }
-      `}</style>
     </main>
   );
 }
